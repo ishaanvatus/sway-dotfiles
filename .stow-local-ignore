@@ -2,7 +2,6 @@
 LICENSE
 README.md
 bootstrap.sh
-Mononoki.zip
-bootstrap.sh
+packages.sh
 flatpaks.sh
-sway_browser_crash_triggers
+services.sh
