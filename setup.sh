@@ -1,4 +1,27 @@
 #!/bin/sh
+
+mkdir -p ~/documents ~/downloads ~/music ~/pictures ~/videos ~/.config/xfce4 ~/.software ~/src ~/.local/bin ~/.local/share/fonts/Mononoki
+cp Mononoki/* ~/.local/share/fonts/Mononoki/
+
+echo "max_parallel_downloads=6" | sudo tee -a  /etc/dnf/dnf.conf
+sudo dnf -y upgrade --refresh
+
+sudo dnf -y install stow
+rm ~/.bashrc ~/.bash_profile
+stow .
+
+source ~/.bashrc
+
+
+## rpm fusion
+sudo dnf upgrade --refresh
+sudo dnf -y install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf -y config-manager setopt fedora-cisco-openh264.enabled=1
+sudo dnf -y swap ffmpeg-free ffmpeg --allowerasing
+sudo dnf -y install @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
+sudo dnf -y install intel-media-driver 
+
+## packages
 sudo dnf upgrade --refresh
 
 ## browser
@@ -26,3 +49,19 @@ go install go.senan.xyz/cliphist@latest
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 curl -fsSL https://deno.land/install.sh | sh
 deno completions bash > ~/.bashrc.d/user/deno.bash
+
+## flatpaks
+sudo dnf -y install flatpak
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
+flatpak -y install flathub com.obsproject.Studio
+flatpak -y install flathub org.gnome.Epiphany
+flatpak -y install flathub org.signal.Signal
+flatpak -y install flathub org.kde.kdenlive
+
+## services
+sudo systemctl enable --now tlp
+sudo systemctl enable --now docker
+systemctl --user enable kanshi.service
+systemctl --user start sway-session.target
+
