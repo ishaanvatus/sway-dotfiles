@@ -7,5 +7,4 @@ sudo dnf -y install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-rel
 sudo dnf -y config-manager setopt fedora-cisco-openh264.enabled=1
 sudo dnf -y swap ffmpeg-free ffmpeg --allowerasing
 sudo dnf -y install @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
-sudo dnf install intel-media-driver 
-
+sudo dnf -y install intel-media-driver 
