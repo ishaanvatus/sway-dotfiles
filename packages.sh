@@ -21,4 +21,4 @@ sudo dnf install -y 7z blueman calibre chromium cowsay cups default-fonts-cjk ff
 
 sudo dnf -y remove yt-dlp
 
-
+go install go.senan.xyz/cliphist@latest
