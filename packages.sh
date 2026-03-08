@@ -22,3 +22,7 @@ sudo dnf -y install 7z blueman calibre chromium cowsay cups default-fonts-cjk fa
 sudo dnf -y remove yt-dlp
 
 go install go.senan.xyz/cliphist@latest
+
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+curl -fsSL https://deno.land/install.sh | sh
+deno completions bash > ~/.bashrc.d/user/deno.bash
