@@ -1,6 +1,7 @@
 .git
 LICENSE
 README.md
+rpmfusion.sh
 bootstrap.sh
 packages.sh
 flatpaks.sh

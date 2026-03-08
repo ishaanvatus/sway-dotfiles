@@ -1,9 +1,9 @@
 #!/bin/sh
 
-sudo dnf install flatpak
+sudo dnf -y install flatpak
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
-flatpak install flathub com.obsproject.Studio
-flatpak install flathub org.gnome.Epiphany
-flatpak install flathub org.signal.Signal
-flatpak install flathub org.kde.kdenlive
+flatpak -y install flathub com.obsproject.Studio
+flatpak -y install flathub org.gnome.Epiphany
+flatpak -y install flathub org.signal.Signal
+flatpak -y install flathub org.kde.kdenlive
