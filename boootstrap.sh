@@ -4,7 +4,7 @@ mkdir -p ~/documents ~/downloads ~/music ~/pictures ~/videos ~/.config/xfce4 ~/.
 sudo dnf -y install stow
 rm ~/.bashrc ~/.bash_profile ~/.profile
 stow .
-./rpmfusion.sh
-./packages.sh
-./flatpaks.sh
-./services.sh
+bash rpmfusion.sh
+bash packages.sh
+bash flatpaks.sh
+bash services.sh
