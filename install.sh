@@ -1,5 +1,7 @@
 #!/bin/sh
 
+PKGS="7z blueman cage calibre chromium cowsay cups default-fonts-cjk fastfetch ffmpegthumbnailer file-roller file-roller fortune-mod freerdp fuzzel gammastep gimp gimp-resynthesizer gnome-themes-extra golang grim gstreamer1-plugins-bad-free-extras gutenprint gutenprint-devel gvfs-mtp gvfs-smb HandBrake HandBrake HandBrake-gui hplip htop ImageMagick imlib2-devel iwlwifi-mvm-firmware kanshi keepassxc libexif-devel libjxl-utils libreoffice libXft-devel light lxappearance lxpolkit lz4-devel mediawriter mkvtoolnix mkvtoolnix-gui moreutils mpv mpv-mpris mullvad-browser neovim network-manager-applet NetworkManager-tui NetworkManager-wifi nmap pamixer pandoc pavucontrol perl-core playerctl potrace protontricks python3-setuptools qbittorrent qt5ct qt6ct slurp steam stow strawberry sway terminus-fonts-console thunar thunar-archive-plugin thunderbird tlp torbrowser-launcher ufw vlc waybar wayland-devel wayland-protocols-devel wdisplays xdg-user-dirs xsane zathura zathura-pdf-mupdf"
+
 mkdir -p ~/documents ~/downloads ~/music ~/pictures ~/videos ~/.config/xfce4 ~/.software ~/src ~/.local/bin ~/.local/share/fonts/Mononoki
 cp Mononoki/* ~/.local/share/fonts/Mononoki/
 
@@ -14,7 +16,6 @@ source ~/.bashrc
 
 
 ## rpm fusion
-sudo dnf upgrade --refresh
 sudo dnf -y install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 sudo dnf -y config-manager setopt fedora-cisco-openh264.enabled=1
 sudo dnf -y swap ffmpeg-free ffmpeg --allowerasing
@@ -22,13 +23,11 @@ sudo dnf -y install @multimedia --setopt="install_weak_deps=False" --exclude=Pac
 sudo dnf -y install intel-media-driver 
 
 ## packages
-sudo dnf upgrade --refresh
-
+sudo dnf -y $(PKGS)
 ## browser
 curl -fsSL https://repo.librewolf.net/librewolf.repo | pkexec tee /etc/yum.repos.d/librewolf.repo
 sudo dnf -y install librewolf
 
-sudo dnf -y upgrade --refresh
 
 sudo dnf -y install @virtualization
 sudo usermod -a -G libvirt $(whoami)
@@ -40,7 +39,6 @@ sudo usermod -a -G docker $(whoami)
 
 
 ## essentials
-sudo dnf -y install 7z blueman calibre chromium cowsay cups default-fonts-cjk fastfetch ffmpegthumbnailer file-roller file-roller foliate fortune-mod freerdp fuzzel gammastep gimp gimp-resynthesizer gnome-themes-extra golang grim gstreamer1-plugins-bad-free-extras gutenprint gutenprint-devel gvfs-mtp gvfs-smb hplip htop ImageMagick imlib2-devel iwlwifi-mvm-firmware kanshi keepassxc libexif-devel libjxl-utils libreoffice libXft-devel light lxappearance lxpolkit lz4-devel mediawriter moreutils mpv mpv-mpris neovim network-manager-applet NetworkManager-tui NetworkManager-wifi nmap pamixer pandoc pavucontrol perl-core playerctl potrace protontricks python3-setuptools qbittorrent qt5ct qt6ct slurp steam stow strawberry sway terminus-fonts-console thunar thunar-archive-plugin thunderbird tlp torbrowser-launcher ufw vlc waybar wayland-devel wayland-protocols-devel wdisplays xdg-user-dirs xsane zathura zathura-pdf-mupdf 
 
 sudo dnf -y remove yt-dlp
 
@@ -58,6 +56,7 @@ flatpak -y install flathub com.obsproject.Studio
 flatpak -y install flathub org.gnome.Epiphany
 flatpak -y install flathub org.signal.Signal
 flatpak -y install flathub org.kde.kdenlive
+flatpak -y install flathub org.mozilla.Thunderbird
 
 ## services
 sudo systemctl enable --now tlp
