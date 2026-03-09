@@ -1,17 +1,16 @@
 #!/bin/sh
 
-PKGS="7z blueman cage calibre chromium cowsay cups default-fonts-cjk fastfetch ffmpegthumbnailer file-roller file-roller fortune-mod freerdp fuzzel gammastep gimp gimp-resynthesizer gnome-themes-extra golang grim gstreamer1-plugins-bad-free-extras gutenprint gutenprint-devel gvfs-mtp gvfs-smb HandBrake HandBrake HandBrake-gui hplip htop ImageMagick imlib2-devel iwlwifi-mvm-firmware kanshi keepassxc libexif-devel libjxl-utils libreoffice libXft-devel light lxappearance lxpolkit lz4-devel mediawriter mkvtoolnix mkvtoolnix-gui moreutils mpv mpv-mpris mullvad-browser neovim network-manager-applet NetworkManager-tui NetworkManager-wifi nmap pamixer pandoc pavucontrol perl-core playerctl potrace protontricks python3-setuptools qbittorrent qt5ct qt6ct slurp steam stow strawberry sway terminus-fonts-console thunar thunar-archive-plugin tlp torbrowser-launcher ufw vlc waybar wayland-devel wayland-protocols-devel wdisplays xdg-user-dirs xsane zathura zathura-pdf-mupdf"
+PKGS="7z blueman cage calibre chromium cowsay cups default-fonts-cjk fastfetch ffmpegthumbnailer file-roller fortune-mod freerdp fuzzel gammastep gimp gimp-resynthesizer gnome-themes-extra golang grim gstreamer1-plugins-bad-free-extras gutenprint gutenprint-devel gvfs-mtp gvfs-smb HandBrake HandBrake-gui hplip htop ImageMagick imlib2-devel iwlwifi-mvm-firmware kanshi keepassxc libexif-devel libjxl-utils libreoffice libXft-devel light lxappearance lxpolkit lz4-devel mediawriter mkvtoolnix mkvtoolnix-gui moreutils mpv mpv-mpris mullvad-browser neovim network-manager-applet NetworkManager-tui NetworkManager-wifi nmap pamixer pandoc pavucontrol perl-core playerctl potrace protontricks python3-setuptools qbittorrent qt5ct qt6ct slurp steam stow strawberry sway swaylock terminus-fonts-console thunar thunar-archive-plugin tlp torbrowser-launcher ufw vlc waybar wayland-devel wayland-protocols-devel wdisplays xdg-user-dirs xsane zathura zathura-pdf-mupdf"
 
 mkdir -p ~/documents ~/downloads ~/music ~/pictures ~/videos ~/.config/xfce4 ~/.software ~/src ~/.local/bin ~/.local/share/fonts/Mononoki
 cp Mononoki/* ~/.local/share/fonts/Mononoki/
 
-echo "max_parallel_downloads=6" | sudo tee -a  /etc/dnf/dnf.conf
+echo "max_parallel_downloads=8" | sudo tee -a  /etc/dnf/dnf.conf
 sudo dnf -y upgrade --refresh
 
 sudo dnf -y install stow
 rm ~/.bashrc ~/.bash_profile
 stow .
-
 source ~/.bashrc
 
 
@@ -23,7 +22,7 @@ sudo dnf -y install @multimedia --setopt="install_weak_deps=False" --exclude=Pac
 sudo dnf -y install intel-media-driver 
 
 ## packages
-sudo dnf -y $(PKGS)
+sudo dnf -y ${PKGS}
 ## browser
 curl -fsSL https://repo.librewolf.net/librewolf.repo | pkexec tee /etc/yum.repos.d/librewolf.repo
 sudo dnf -y install librewolf
@@ -44,7 +43,9 @@ sudo dnf -y remove yt-dlp
 
 go install go.senan.xyz/cliphist@latest
 
+echo "don't add anything to path for rustup"
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+echo "don't add anything to path or enable completions for deno"
 curl -fsSL https://deno.land/install.sh | sh
 deno completions bash > ~/.bashrc.d/user/deno.bash
 
@@ -59,8 +60,8 @@ flatpak -y install flathub org.kde.kdenlive
 flatpak -y install flathub org.mozilla.Thunderbird
 
 ## services
-sudo systemctl enable --now tlp
-sudo systemctl enable --now docker
+sudo systemctl enable tlp
+sudo systemctl enable docker
 systemctl --user enable kanshi.service
 systemctl --user start sway-session.target
-
+echo "You should probably reboot before using this system :|"
