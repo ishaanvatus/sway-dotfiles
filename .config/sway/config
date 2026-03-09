@@ -51,12 +51,10 @@ output * bg $(find -L $wallpapers_path -type f | shuf -n 1 ) fill
 #
 # Example configuration:
 #
-output HDMI-A-2 resolution 1920x1080 position 0,0
-output eDP-1 resolution 1920x1080 position 1920,0
+#output HDMI-A-2 resolution 1920x1080 position 0,0
+#output eDP-1 resolution 1920x1080 position 1920,0
 
-# toggle output
-bindsym $mod+m output "HDMI-A-2" enable ; output "eDP-1" disable
-bindsym $mod+Shift+m output "HDMI-A-2" enable ; output "eDP-1" enable
+output * max_render_time off
 
 
 #
