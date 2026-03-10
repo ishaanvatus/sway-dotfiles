@@ -9,10 +9,10 @@
 # Logo key. Use Mod1 for Alt.
 set $mod MOD4  
 # Home row direction keys, like vim
-set $left j
-set $down k
-set $up l
-set $right semicolon
+set $left h
+set $down j
+set $up k
+set $right l
 exec_always systemctl --user start sway-session.target
 exec_always systemctl --user restart kanshi.service
 exec xhost +si:localuser:savantshuia
@@ -192,9 +192,9 @@ output * max_render_time off
 # Layout stuff:
 #
     # You can "split" the current object of your focus with
-    # $mod+h or $mod+v, for horizontal and vertical splits
+    # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym $mod+h splith
+    bindsym $mod+b splith
     bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
@@ -275,7 +275,6 @@ bar {
     position top
     modifier $mod
 }
-bindsym $mod+b bar mode toggle
 exec --no-startup-id /usr/lib/xdg-desktop-portal-wlr -r 
 set $opacity 1.0
 for_window [class=".*"] opacity $opacity

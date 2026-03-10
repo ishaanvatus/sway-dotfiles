@@ -1,0 +1,18 @@
+[
+    {
+        "key": "h",
+        "command": ["script-binding", "file_browser/dynamic/up_dir"]
+    },
+    {
+        "key": "j",
+        "command": ["script-binding", "file_browser/dynamic/scroll_down"]
+    },
+    {
+        "key": "k",
+        "command": ["script-binding", "file_browser/dynamic/scroll_up"]
+    },
+    {
+        "key": "l",
+        "command": ["script-binding", "file_browser/dynamic/down_dir"]
+    }
+]
