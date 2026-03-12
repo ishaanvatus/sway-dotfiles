@@ -158,6 +158,8 @@ output * max_render_time off
     set $ps2 Alt+Print
     set $ps3 $mod+Print
     set $ps4 $mod+Alt+Print
+    # color picker
+    bindsym $mod+g exec grimpicker --copy
     set $psf $(xdg-user-dir PICTURES)/screenshots/ps_$(date +"%Y%m%d%H%M%S").png
     bindsym $ps1 exec grim - | wl-copy
     bindsym $ps2 exec grim -g "$(slurp)" - | wl-copy
@@ -275,8 +277,15 @@ bar {
     position top
     modifier $mod
 }
+#bar {
+#    swaybar_command swaybar
+#    position top
+#}
 exec --no-startup-id /usr/lib/xdg-desktop-portal-wlr -r 
 set $opacity 1.0
 for_window [class=".*"] opacity $opacity
 for_window [app_id=".*"] opacity $opacity
 include /etc/sway/config.d/*
+## gestures
+bindgesture swipe:right workspace back_and_forth
+bindgesture swipe:left workspace forth_and_back
