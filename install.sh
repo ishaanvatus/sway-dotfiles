@@ -26,7 +26,7 @@ sudo dnf -y install @multimedia --setopt="install_weak_deps=False" --exclude=Pac
 sudo dnf -y install intel-media-driver 
 
 ## packages
-sudo dnf -y ${PKGS}
+sudo dnf -y install ${PKGS}
 ## browser
 curl -fsSL https://repo.librewolf.net/librewolf.repo | pkexec tee /etc/yum.repos.d/librewolf.repo
 sudo dnf -y install librewolf
