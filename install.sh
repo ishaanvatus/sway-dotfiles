@@ -2,8 +2,10 @@
 
 PKGS="7z blueman cage calibre chromium cowsay cups ddcutil default-fonts-cjk fastfetch ffmpegthumbnailer file-roller fortune-mod freerdp fuzzel gammastep gimp gimp-resynthesizer gnome-themes-extra golang grim gstreamer1-plugins-bad-free-extras gutenprint gutenprint-devel gvfs-mtp gvfs-smb HandBrake HandBrake-gui hplip htop ImageMagick imlib2-devel iwlwifi-mvm-firmware kanshi keepassxc libexif-devel libjxl-utils libreoffice libXft-devel light lxappearance lxpolkit lz4-devel mediawriter mkvtoolnix mkvtoolnix-gui moreutils mpv mpv-mpris mullvad-browser ncdu neovim network-manager-applet NetworkManager-tui NetworkManager-wifi nmap pamixer pandoc pavucontrol perl-core playerctl potrace protontricks python3-setuptools qbittorrent qt5ct qt6ct rpi-imager slurp steam stow strawberry sway swaylock terminus-fonts-console thunar thunar-archive-plugin tlp torbrowser-launcher ufw vlc waybar wayland-devel wayland-protocols-devel wdisplays xdg-user-dirs xsane zathura zathura-pdf-mupdf"
 
-mkdir -p ~/documents ~/downloads ~/music ~/pictures ~/videos ~/.config/xfce4 ~/.software ~/src ~/.local/bin ~/.local/share/fonts/Mononoki
-cp fonts/Mononoki/* ~/.local/share/fonts/Mononoki/
+mkdir -p ~/desktop ~/documents ~/downloads ~/music ~/pictures ~/public ~/templates ~/videos
+mkdir -p ~/src ~/.software ~/games
+mkdir -p ~/.local/share/fonts/Mononoki ~/.local/bin ~/config/xfce4 ~/.config/qt5ct ~/.config/qt6ct 
+tar xf ~/.dotfiles/Mononoki.tar.xz -C ~/.local/share/fonts/Mononoki
 
 echo "max_parallel_downloads=8" | sudo tee -a  /etc/dnf/dnf.conf
 sudo dnf -y upgrade --refresh
