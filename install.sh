@@ -4,8 +4,9 @@ PKGS="7z blueman cage calibre chromium cowsay cups ddcutil default-fonts-cjk fas
 
 mkdir -p ~/desktop ~/documents ~/downloads ~/music ~/pictures ~/public ~/templates ~/videos
 mkdir -p ~/src ~/.software ~/games
-mkdir -p ~/.local/share/fonts/Mononoki ~/.local/bin ~/config/xfce4 ~/.config/qt5ct ~/.config/qt6ct 
+mkdir -p ~/.local/share/fonts/Mononoki ~/.local/bin ~/.local/share/applications ~/config/xfce4 ~/.config/qt5ct ~/.config/qt6ct 
 tar xf ~/.dotfiles/Mononoki.tar.xz -C ~/.local/share/fonts/Mononoki
+ln -sf $HOME/.dotfiles/.config/mimeapps.list $HOME/.local/share/applications/mimeapps.list
 
 echo "max_parallel_downloads=8" | sudo tee -a  /etc/dnf/dnf.conf
 sudo dnf -y upgrade --refresh
