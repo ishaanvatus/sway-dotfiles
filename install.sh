@@ -57,8 +57,11 @@ sudo usermod -a -G docker $(whoami)
 ## essentials
 
 sudo dnf -y remove yt-dlp
+curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o ~/.local/bin/yt-dlp
+chmod a+rx ~/.local/bin/yt-dlp  # Make executable
 
 go install go.senan.xyz/cliphist@latest
+env CGO_ENABLED=0 go install -ldflags="-s -w" github.com/gokcehan/lf@latest
 
 echo "don't add anything to path for rustup"
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
