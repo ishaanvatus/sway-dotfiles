@@ -63,17 +63,18 @@ map a :push %mkdir<space>
 cmd trash %set -f; mv -t ~/.trash $fx
 
 # define a custom 'delete' command
-# cmd delete ${{
-#     set -f
-#     printf "$fx\n"
-#     printf "delete? [y/N] "
-#     read ans
-#     [ "$ans" = "y" ] && rm -rf $fx
-# }}
+ cmd delete ${{
+     set -f
+     printf "$fx\n"
+     printf "delete? [y/N] "
+     read ans
+     [ "$ans" = "y" ] && rm -rf $fx
+ }}
 
+map d
+map dD delete
+map dT trash
 # use '<delete>' key for either 'trash' or 'delete' command
-# map <delete> trash
-# map <delete> delete
 
 # extract the current file with the right command
 # (xkcd link: https://xkcd.com/1168/)

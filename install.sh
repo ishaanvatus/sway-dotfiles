@@ -3,14 +3,21 @@
 PKGS="7z blueman cage calibre chafa chromium cowsay cups ddcutil default-fonts-cjk fastfetch ffmpegthumbnailer file-roller fortune-mod freerdp fuzzel gammastep gimp gimp-resynthesizer gnome-themes-extra golang grim grimpicker gstreamer1-plugins-bad-free-extras gutenprint gutenprint-devel gvfs-mtp gvfs-smb HandBrake HandBrake-gui hplip htop ImageMagick imlib2-devel iwlwifi-mvm-firmware kanshi keepassxc libexif-devel libjxl-utils libreoffice libXft-devel light lxappearance lxpolkit lz4-devel mediawriter mkvtoolnix mkvtoolnix-gui moreutils mpv mpv-mpris ncdu neovim network-manager-applet NetworkManager-tui NetworkManager-wifi nmap pamixer pandoc pavucontrol perl-core playerctl potrace protontricks python3-setuptools qbittorrent qt5ct qt6ct rpi-imager slurp steam stow strawberry sway swaylock terminus-fonts-console thunar thunar-archive-plugin tlp torbrowser-launcher ufw vlc waybar wayland-devel wayland-protocols-devel wdisplays xdg-user-dirs xsane zathura zathura-pdf-mupdf"
 
 mkdir -p ~/desktop ~/documents ~/downloads ~/music ~/pictures ~/public ~/templates ~/videos
-mkdir -p ~/src ~/games
-mkdir -p ~/.local/share/fonts/Mononoki ~/.local/bin ~/.local/share/applications ~/.config/xfce4 ~/.config/qt5ct ~/.config/qt6ct 
+mkdir -p ~/games
+mkdir -p ~/.local/share/fonts/Mononoki ~/.local/bin ~/.local/src ~/.local/share/applications ~/.config/xfce4 
 tar xf ~/.dotfiles/Mononoki.tar.xz -C ~/.local/share/fonts/Mononoki
 ln -sf $HOME/.dotfiles/.config/mimeapps.list $HOME/.local/share/applications/mimeapps.list
 
 echo "fastestmirror=True" | sudo tee -a  /etc/dnf/dnf.conf
 echo "max_parallel_downloads=10" | sudo tee -a  /etc/dnf/dnf.conf
 sudo dnf -y upgrade --refresh
+
+sudo mkdir /etc/systemd/logind.conf.d/
+sudo touch /etc/systemd/logind.conf.d/99-laptop-server.conf
+echo "[Login]" | sudo tee -a  /etc/systemd/logind.conf.d/99-laptop-server.conf
+echo "HandleLidSwitch=ignore" | sudo tee -a  /etc/systemd/logind.conf.d/99-laptop-server.conf
+echo "HandleLidSwitchExternalPower=ignore" | sudo tee -a  /etc/systemd/logind.conf.d/99-laptop-server.conf
+echo "HandleLidSwitchDocked=ignore" | sudo tee -a  /etc/systemd/logind.conf.d/99-laptop-server.conf
 
 sudo dnf -y install stow
 rm ~/.bashrc ~/.bash_profile
