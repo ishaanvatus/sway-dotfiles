@@ -1,10 +1,10 @@
 #!/bin/sh
 
-PKGS="7z blueman cage calibre chromium cowsay cups ddcutil default-fonts-cjk fastfetch ffmpegthumbnailer file-roller fortune-mod freerdp fuzzel gammastep gimp gimp-resynthesizer gnome-themes-extra golang grim gstreamer1-plugins-bad-free-extras gutenprint gutenprint-devel gvfs-mtp gvfs-smb HandBrake HandBrake-gui hplip htop ImageMagick imlib2-devel iwlwifi-mvm-firmware kanshi keepassxc libexif-devel libjxl-utils libreoffice libXft-devel light lxappearance lxpolkit lz4-devel mediawriter mkvtoolnix mkvtoolnix-gui moreutils mpv mpv-mpris ncdu neovim network-manager-applet NetworkManager-tui NetworkManager-wifi nmap pamixer pandoc pavucontrol perl-core playerctl potrace protontricks python3-setuptools qbittorrent qt5ct qt6ct rpi-imager slurp steam stow strawberry sway swaylock terminus-fonts-console thunar thunar-archive-plugin tlp torbrowser-launcher ufw vlc waybar wayland-devel wayland-protocols-devel wdisplays xdg-user-dirs xsane zathura zathura-pdf-mupdf"
+PKGS="7z blueman cage calibre chafa chromium cowsay cups ddcutil default-fonts-cjk fastfetch ffmpegthumbnailer file-roller fortune-mod freerdp fuzzel gammastep gimp gimp-resynthesizer gnome-themes-extra golang grim grimpicker gstreamer1-plugins-bad-free-extras gutenprint gutenprint-devel gvfs-mtp gvfs-smb HandBrake HandBrake-gui hplip htop ImageMagick imlib2-devel iwlwifi-mvm-firmware kanshi keepassxc libexif-devel libjxl-utils libreoffice libXft-devel light lxappearance lxpolkit lz4-devel mediawriter mkvtoolnix mkvtoolnix-gui moreutils mpv mpv-mpris ncdu neovim network-manager-applet NetworkManager-tui NetworkManager-wifi nmap pamixer pandoc pavucontrol perl-core playerctl potrace protontricks python3-setuptools qbittorrent qt5ct qt6ct rpi-imager slurp steam stow strawberry sway swaylock terminus-fonts-console thunar thunar-archive-plugin tlp torbrowser-launcher ufw vlc waybar wayland-devel wayland-protocols-devel wdisplays xdg-user-dirs xsane zathura zathura-pdf-mupdf"
 
 mkdir -p ~/desktop ~/documents ~/downloads ~/music ~/pictures ~/public ~/templates ~/videos
-mkdir -p ~/src ~/.software ~/games
-mkdir -p ~/.local/share/fonts/Mononoki ~/.local/bin ~/.local/share/applications ~/config/xfce4 ~/.config/qt5ct ~/.config/qt6ct 
+mkdir -p ~/src ~/games
+mkdir -p ~/.local/share/fonts/Mononoki ~/.local/bin ~/.local/share/applications ~/.config/xfce4 ~/.config/qt5ct ~/.config/qt6ct 
 tar xf ~/.dotfiles/Mononoki.tar.xz -C ~/.local/share/fonts/Mononoki
 ln -sf $HOME/.dotfiles/.config/mimeapps.list $HOME/.local/share/applications/mimeapps.list
 
@@ -27,9 +27,15 @@ sudo dnf -y install intel-media-driver
 
 ## packages
 sudo dnf -y install ${PKGS}
+
 ## browser
+
+## librewolf
 curl -fsSL https://repo.librewolf.net/librewolf.repo | pkexec tee /etc/yum.repos.d/librewolf.repo
 sudo dnf -y install librewolf
+# mullvad
+sudo dnf config-manager addrepo --from-repofile=https://repository.mullvad.net/rpm/stable/mullvad.repo
+sudo dnf install mullvad-browser
 
 
 sudo dnf -y install @virtualization

@@ -17,7 +17,7 @@ exec_always systemctl --user start sway-session.target
 exec_always systemctl --user restart kanshi.service
 exec xhost +si:localuser:savantshuia
 # Polkit
-exec /usr/bin/lxpolkit
+exec --no-startup-id /usr/bin/lxpolkit
 exec nm-applet --indicator
 exec_always wl-paste --type text --watch cliphist store
 exec_always wl-paste --type image --watch cliphist store

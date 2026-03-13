@@ -257,7 +257,7 @@ _deno() {
 
     case "${cmd}" in
         deno)
-            opts="-c -r -A -P -R -W -N -E -S -I -t -h -V -L -q --no-check --import-map --no-remote --no-npm --node-modules-dir --vendor --conditions --config --no-config --reload --lock --no-lock --frozen --cert --unsafely-ignore-certificate-errors --minimum-dependency-age --allow-all --permission-set --allow-read --deny-read --ignore-read --allow-write --deny-write --allow-net --deny-net --allow-env --deny-env --ignore-env --allow-sys --deny-sys --allow-run --deny-run --allow-ffi --deny-ffi --allow-hrtime --deny-hrtime --no-prompt --allow-import --deny-import --inspect --inspect-brk --inspect-wait --inspect-publish-uid --allow-scripts --cached-only --location --v8-flags --seed --enable-testing-features-do-not-use --trace-ops --eszip-internal-do-not-use --preload --require --check --watch --watch-hmr --watch-exclude --no-clear-screen --ext --env-file --no-code-cache --coverage --tunnel --unstable --unstable-bare-node-builtins --unstable-broadcast-channel --unstable-bundle --unstable-byonm --unstable-cron --unstable-detect-cjs --unstable-ffi --unstable-fs --unstable-http --unstable-kv --unstable-lazy-dynamic-imports --unstable-lockfile-v5 --unstable-net --unstable-no-legacy-abort --unstable-node-globals --unstable-npm-lazy-caching --unstable-otel --unstable-process --unstable-raw-imports --unstable-sloppy-imports --unstable-subdomain-wildcards --unstable-temporal --unstable-tsgo --unstable-unsafe-proto --unstable-vsock --unstable-webgpu --unstable-worker-options --help --version --log-level --quiet [SCRIPT_ARG]... run serve add audit remove bench bundle cache check clean compile create completions coverage doc deploy sandbox eval fmt init info install i json_reference jupyter approve-scripts uninstall outdated lsp lint publish repl task test types update upgrade vendor x help"
+            opts="-c -r -A -P -R -W -N -E -S -I -t -h -V -L -q --no-check --import-map --no-remote --no-npm --node-modules-dir --vendor --conditions --config --no-config --reload --lock --no-lock --frozen --cert --unsafely-ignore-certificate-errors --minimum-dependency-age --allow-all --permission-set --allow-read --deny-read --ignore-read --allow-write --deny-write --allow-net --deny-net --allow-env --deny-env --ignore-env --allow-sys --deny-sys --allow-run --deny-run --allow-ffi --deny-ffi --allow-hrtime --deny-hrtime --no-prompt --allow-import --deny-import --inspect --inspect-brk --inspect-wait --inspect-publish-uid --allow-scripts --cached-only --location --v8-flags --seed --enable-testing-features-do-not-use --trace-ops --eszip-internal-do-not-use --preload --require --check --watch --watch-hmr --watch-exclude --no-clear-screen --ext --env-file --no-code-cache --coverage --cpu-prof --cpu-prof-dir --cpu-prof-name --cpu-prof-interval --cpu-prof-md --tunnel --unstable --unstable-bare-node-builtins --unstable-broadcast-channel --unstable-bundle --unstable-byonm --unstable-cron --unstable-detect-cjs --unstable-ffi --unstable-fs --unstable-http --unstable-kv --unstable-lazy-dynamic-imports --unstable-lockfile-v5 --unstable-net --unstable-no-legacy-abort --unstable-node-globals --unstable-npm-lazy-caching --unstable-otel --unstable-process --unstable-raw-imports --unstable-sloppy-imports --unstable-subdomain-wildcards --unstable-temporal --unstable-tsgo --unstable-unsafe-proto --unstable-vsock --unstable-webgpu --unstable-worker-options --help --version --log-level --quiet [SCRIPT_ARG]... run serve add audit remove bench bundle cache check clean compile create completions coverage doc deploy sandbox eval fmt init info install i json_reference jupyter approve-scripts uninstall outdated lsp lint publish repl task test types update upgrade vendor x help"
             if [[ ${cur} == -* || ${COMP_CWORD} -eq 1 ]] ; then
                 COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
                 return 0
@@ -602,6 +602,21 @@ _deno() {
                     return 0
                     ;;
                 --coverage)
+                    COMPREPLY=($(compgen -f "${cur}"))
+                    return 0
+                    ;;
+                --cpu-prof-dir)
+                    COMPREPLY=()
+                    if [[ "${BASH_VERSINFO[0]}" -ge 4 ]]; then
+                        compopt -o plusdirs
+                    fi
+                    return 0
+                    ;;
+                --cpu-prof-name)
+                    COMPREPLY=($(compgen -f "${cur}"))
+                    return 0
+                    ;;
+                --cpu-prof-interval)
                     COMPREPLY=($(compgen -f "${cur}"))
                     return 0
                     ;;
@@ -2472,7 +2487,7 @@ _deno() {
             return 0
             ;;
         deno__eval)
-            opts="-h -L -q -c -r -p --unstable --unstable-bare-node-builtins --unstable-broadcast-channel --unstable-bundle --unstable-byonm --unstable-cron --unstable-detect-cjs --unstable-ffi --unstable-fs --unstable-http --unstable-kv --unstable-lazy-dynamic-imports --unstable-lockfile-v5 --unstable-net --unstable-no-legacy-abort --unstable-node-globals --unstable-npm-lazy-caching --unstable-otel --unstable-process --unstable-raw-imports --unstable-sloppy-imports --unstable-subdomain-wildcards --unstable-temporal --unstable-tsgo --unstable-unsafe-proto --unstable-vsock --unstable-webgpu --unstable-worker-options --help --log-level --quiet --no-check --import-map --no-remote --no-npm --node-modules-dir --vendor --conditions --config --no-config --reload --lock --no-lock --frozen --cert --unsafely-ignore-certificate-errors --minimum-dependency-age --inspect --inspect-brk --inspect-wait --inspect-publish-uid --allow-scripts --cached-only --location --v8-flags --seed --enable-testing-features-do-not-use --trace-ops --eszip-internal-do-not-use --preload --require --check --ext --print --env-file [CODE_ARG]..."
+            opts="-h -L -q -c -r -p --unstable --unstable-bare-node-builtins --unstable-broadcast-channel --unstable-bundle --unstable-byonm --unstable-cron --unstable-detect-cjs --unstable-ffi --unstable-fs --unstable-http --unstable-kv --unstable-lazy-dynamic-imports --unstable-lockfile-v5 --unstable-net --unstable-no-legacy-abort --unstable-node-globals --unstable-npm-lazy-caching --unstable-otel --unstable-process --unstable-raw-imports --unstable-sloppy-imports --unstable-subdomain-wildcards --unstable-temporal --unstable-tsgo --unstable-unsafe-proto --unstable-vsock --unstable-webgpu --unstable-worker-options --help --log-level --quiet --no-check --import-map --no-remote --no-npm --node-modules-dir --vendor --conditions --config --no-config --reload --lock --no-lock --frozen --cert --unsafely-ignore-certificate-errors --minimum-dependency-age --inspect --inspect-brk --inspect-wait --inspect-publish-uid --allow-scripts --cached-only --location --v8-flags --seed --enable-testing-features-do-not-use --trace-ops --eszip-internal-do-not-use --preload --require --check --ext --print --env-file --cpu-prof --cpu-prof-dir --cpu-prof-name --cpu-prof-interval --cpu-prof-md [CODE_ARG]..."
             if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
                 COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
                 return 0
@@ -2714,6 +2729,21 @@ _deno() {
                     if [[ "${BASH_VERSINFO[0]}" -ge 4 ]]; then
                         compopt -o filenames
                     fi
+                    return 0
+                    ;;
+                --cpu-prof-dir)
+                    COMPREPLY=()
+                    if [[ "${BASH_VERSINFO[0]}" -ge 4 ]]; then
+                        compopt -o plusdirs
+                    fi
+                    return 0
+                    ;;
+                --cpu-prof-name)
+                    COMPREPLY=($(compgen -f "${cur}"))
+                    return 0
+                    ;;
+                --cpu-prof-interval)
+                    COMPREPLY=($(compgen -f "${cur}"))
                     return 0
                     ;;
                 *)
@@ -5301,7 +5331,7 @@ _deno() {
             return 0
             ;;
         deno__run)
-            opts="-c -r -A -P -R -W -N -E -S -I -t -h -L -q --unstable --unstable-bare-node-builtins --unstable-broadcast-channel --unstable-bundle --unstable-byonm --unstable-cron --unstable-detect-cjs --unstable-ffi --unstable-fs --unstable-http --unstable-kv --unstable-lazy-dynamic-imports --unstable-lockfile-v5 --unstable-net --unstable-no-legacy-abort --unstable-node-globals --unstable-npm-lazy-caching --unstable-otel --unstable-process --unstable-raw-imports --unstable-sloppy-imports --unstable-subdomain-wildcards --unstable-temporal --unstable-tsgo --unstable-unsafe-proto --unstable-vsock --unstable-webgpu --unstable-worker-options --no-check --import-map --no-remote --no-npm --node-modules-dir --vendor --conditions --config --no-config --reload --lock --no-lock --frozen --cert --unsafely-ignore-certificate-errors --minimum-dependency-age --allow-all --permission-set --allow-read --deny-read --ignore-read --allow-write --deny-write --allow-net --deny-net --allow-env --deny-env --ignore-env --allow-sys --deny-sys --allow-run --deny-run --allow-ffi --deny-ffi --allow-hrtime --deny-hrtime --no-prompt --allow-import --deny-import --inspect --inspect-brk --inspect-wait --inspect-publish-uid --allow-scripts --cached-only --location --v8-flags --seed --enable-testing-features-do-not-use --trace-ops --eszip-internal-do-not-use --preload --require --check --watch --watch-hmr --watch-exclude --no-clear-screen --ext --env-file --no-code-cache --coverage --tunnel --help --log-level --quiet [SCRIPT_ARG]..."
+            opts="-c -r -A -P -R -W -N -E -S -I -t -h -L -q --unstable --unstable-bare-node-builtins --unstable-broadcast-channel --unstable-bundle --unstable-byonm --unstable-cron --unstable-detect-cjs --unstable-ffi --unstable-fs --unstable-http --unstable-kv --unstable-lazy-dynamic-imports --unstable-lockfile-v5 --unstable-net --unstable-no-legacy-abort --unstable-node-globals --unstable-npm-lazy-caching --unstable-otel --unstable-process --unstable-raw-imports --unstable-sloppy-imports --unstable-subdomain-wildcards --unstable-temporal --unstable-tsgo --unstable-unsafe-proto --unstable-vsock --unstable-webgpu --unstable-worker-options --no-check --import-map --no-remote --no-npm --node-modules-dir --vendor --conditions --config --no-config --reload --lock --no-lock --frozen --cert --unsafely-ignore-certificate-errors --minimum-dependency-age --allow-all --permission-set --allow-read --deny-read --ignore-read --allow-write --deny-write --allow-net --deny-net --allow-env --deny-env --ignore-env --allow-sys --deny-sys --allow-run --deny-run --allow-ffi --deny-ffi --allow-hrtime --deny-hrtime --no-prompt --allow-import --deny-import --inspect --inspect-brk --inspect-wait --inspect-publish-uid --allow-scripts --cached-only --location --v8-flags --seed --enable-testing-features-do-not-use --trace-ops --eszip-internal-do-not-use --preload --require --check --watch --watch-hmr --watch-exclude --no-clear-screen --ext --env-file --no-code-cache --coverage --cpu-prof --cpu-prof-dir --cpu-prof-name --cpu-prof-interval --cpu-prof-md --tunnel --help --log-level --quiet [SCRIPT_ARG]..."
             if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
                 COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
                 return 0
@@ -5649,6 +5679,21 @@ _deno() {
                     COMPREPLY=($(compgen -f "${cur}"))
                     return 0
                     ;;
+                --cpu-prof-dir)
+                    COMPREPLY=()
+                    if [[ "${BASH_VERSINFO[0]}" -ge 4 ]]; then
+                        compopt -o plusdirs
+                    fi
+                    return 0
+                    ;;
+                --cpu-prof-name)
+                    COMPREPLY=($(compgen -f "${cur}"))
+                    return 0
+                    ;;
+                --cpu-prof-interval)
+                    COMPREPLY=($(compgen -f "${cur}"))
+                    return 0
+                    ;;
                 --tunnel)
                     COMPREPLY=($(compgen -W "true false" -- "${cur}"))
                     return 0
@@ -5711,7 +5756,7 @@ _deno() {
             return 0
             ;;
         deno__serve)
-            opts="-c -r -A -P -R -W -N -E -S -I -t -h -L -q --unstable --unstable-bare-node-builtins --unstable-broadcast-channel --unstable-bundle --unstable-byonm --unstable-cron --unstable-detect-cjs --unstable-ffi --unstable-fs --unstable-http --unstable-kv --unstable-lazy-dynamic-imports --unstable-lockfile-v5 --unstable-net --unstable-no-legacy-abort --unstable-node-globals --unstable-npm-lazy-caching --unstable-otel --unstable-process --unstable-raw-imports --unstable-sloppy-imports --unstable-subdomain-wildcards --unstable-temporal --unstable-tsgo --unstable-unsafe-proto --unstable-vsock --unstable-webgpu --unstable-worker-options --no-check --import-map --no-remote --no-npm --node-modules-dir --vendor --conditions --config --no-config --reload --lock --no-lock --frozen --cert --unsafely-ignore-certificate-errors --minimum-dependency-age --allow-all --permission-set --allow-read --deny-read --ignore-read --allow-write --deny-write --allow-net --deny-net --allow-env --deny-env --ignore-env --allow-sys --deny-sys --allow-run --deny-run --allow-ffi --deny-ffi --allow-hrtime --deny-hrtime --no-prompt --allow-import --deny-import --inspect --inspect-brk --inspect-wait --inspect-publish-uid --allow-scripts --cached-only --location --v8-flags --seed --enable-testing-features-do-not-use --trace-ops --eszip-internal-do-not-use --preload --require --port --host --open --parallel --check --watch --watch-hmr --watch-exclude --no-clear-screen --ext --env-file --no-code-cache --tunnel --help --log-level --quiet [SCRIPT_ARG]..."
+            opts="-c -r -A -P -R -W -N -E -S -I -t -h -L -q --unstable --unstable-bare-node-builtins --unstable-broadcast-channel --unstable-bundle --unstable-byonm --unstable-cron --unstable-detect-cjs --unstable-ffi --unstable-fs --unstable-http --unstable-kv --unstable-lazy-dynamic-imports --unstable-lockfile-v5 --unstable-net --unstable-no-legacy-abort --unstable-node-globals --unstable-npm-lazy-caching --unstable-otel --unstable-process --unstable-raw-imports --unstable-sloppy-imports --unstable-subdomain-wildcards --unstable-temporal --unstable-tsgo --unstable-unsafe-proto --unstable-vsock --unstable-webgpu --unstable-worker-options --no-check --import-map --no-remote --no-npm --node-modules-dir --vendor --conditions --config --no-config --reload --lock --no-lock --frozen --cert --unsafely-ignore-certificate-errors --minimum-dependency-age --allow-all --permission-set --allow-read --deny-read --ignore-read --allow-write --deny-write --allow-net --deny-net --allow-env --deny-env --ignore-env --allow-sys --deny-sys --allow-run --deny-run --allow-ffi --deny-ffi --allow-hrtime --deny-hrtime --no-prompt --allow-import --deny-import --inspect --inspect-brk --inspect-wait --inspect-publish-uid --allow-scripts --cached-only --location --v8-flags --seed --enable-testing-features-do-not-use --trace-ops --eszip-internal-do-not-use --preload --require --port --host --open --parallel --check --watch --watch-hmr --watch-exclude --no-clear-screen --ext --env-file --no-code-cache --cpu-prof --cpu-prof-dir --cpu-prof-name --cpu-prof-interval --cpu-prof-md --tunnel --help --log-level --quiet [SCRIPT_ARG]..."
             if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
                 COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
                 return 0
@@ -6061,6 +6106,21 @@ _deno() {
                     if [[ "${BASH_VERSINFO[0]}" -ge 4 ]]; then
                         compopt -o filenames
                     fi
+                    return 0
+                    ;;
+                --cpu-prof-dir)
+                    COMPREPLY=()
+                    if [[ "${BASH_VERSINFO[0]}" -ge 4 ]]; then
+                        compopt -o plusdirs
+                    fi
+                    return 0
+                    ;;
+                --cpu-prof-name)
+                    COMPREPLY=($(compgen -f "${cur}"))
+                    return 0
+                    ;;
+                --cpu-prof-interval)
+                    COMPREPLY=($(compgen -f "${cur}"))
                     return 0
                     ;;
                 --tunnel)
