@@ -18,7 +18,7 @@ echo "HandleLidSwitch=ignore" | sudo tee -a  /etc/systemd/logind.conf.d/99-lapto
 echo "HandleLidSwitchExternalPower=ignore" | sudo tee -a  /etc/systemd/logind.conf.d/99-laptop-server.conf
 echo "HandleLidSwitchDocked=ignore" | sudo tee -a  /etc/systemd/logind.conf.d/99-laptop-server.conf
 
-sudo dnf -y install stow
+sudo apt -y install stow
 rm ~/.bashrc ~/.bash_profile
 stow .
 source ~/.bashrc
@@ -39,7 +39,7 @@ source ~/.bashrc
 deno completions bash > ~/.bashrc.d/user/deno.bash
 
 ## flatpaks
-sudo dnf -y install flatpak
+sudo apt -y install flatpak
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 flatpak -y install flathub com.obsproject.Studio
