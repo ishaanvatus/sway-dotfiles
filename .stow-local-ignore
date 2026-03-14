@@ -1,5 +1,6 @@
 .git
 LICENSE
 README.md
-install.sh
+fedora-install.sh
+debian-install.sh
 Mononoki.tar.xz

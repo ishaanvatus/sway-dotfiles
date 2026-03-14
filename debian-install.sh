@@ -3,14 +3,13 @@
 PKGS="7z blueman cage calibre chafa chromium cowsay cups ddcutil default-fonts-cjk expat-devel fastfetch ffmpeg-devel ffmpegthumbnailer file-roller foliate fortune-mod freerdp fuzzel gammastep gimp gimp-resynthesizer gnome-themes-extra golang gparted grim grimpicker gstreamer1-plugins-bad-free-extras gutenprint gutenprint-devel gvfs-mtp gvfs-smb HandBrake HandBrake-gui hplip htop ImageMagick imlib2-devel iwlwifi-mvm-firmware kanshi keepassxc libexif-devel  libjxl-utils libreoffice libXft-devel light lxappearance lxpolkit lz4-devel mediawriter mkvtoolnix mkvtoolnix-gui moreutils mpv mpv-mpris ncdu neovim network-manager-applet NetworkManager-tui NetworkManager-wifi nmap pamixer pandoc pavucontrol perl-core playerctl potrace protontricks python3-setuptools qbittorrent qt5ct qt5-qtbase-devel qt6ct rpi-imager slurp steam stow strawberry sway swaylock terminus-fonts-console thunar thunar-archive-plugin tlp torbrowser-launcher ufw vlc waybar wayland-devel wayland-protocols-devel wdisplays xdg-user-dirs xsane zathura zathura-pdf-mupdf"
 
 mkdir -p ~/desktop ~/documents ~/downloads ~/music ~/pictures/screenshots/mpv ~/public ~/templates ~/videos
-mkdir -p ~/games
+mkdir -p ~/games ~/src
 mkdir -p ~/.local/share/fonts/Mononoki ~/.local/bin ~/.local/src ~/.local/share/applications ~/.config/xfce4 
 tar xf ~/.dotfiles/Mononoki.tar.xz -C ~/.local/share/fonts/Mononoki
 ln -sf $HOME/.dotfiles/.config/mimeapps.list $HOME/.local/share/applications/mimeapps.list
 
-echo "fastestmirror=True" | sudo tee -a  /etc/dnf/dnf.conf
-echo "max_parallel_downloads=10" | sudo tee -a  /etc/dnf/dnf.conf
-sudo dnf -y upgrade --refresh
+sudo apt -y update
+sudo apt -y upgrade
 
 sudo mkdir /etc/systemd/logind.conf.d/
 sudo touch /etc/systemd/logind.conf.d/99-laptop-server.conf
@@ -25,38 +24,7 @@ stow .
 source ~/.bashrc
 
 
-## rpm fusion
-sudo dnf -y install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-sudo dnf -y config-manager setopt fedora-cisco-openh264.enabled=1
-sudo dnf -y swap ffmpeg-free ffmpeg --allowerasing
-sudo dnf -y install @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
-sudo dnf -y install intel-media-driver 
-
-## packages
-sudo dnf -y install ${PKGS}
-
-## browser
-
-## librewolf
-curl -fsSL https://repo.librewolf.net/librewolf.repo | pkexec tee /etc/yum.repos.d/librewolf.repo
-sudo dnf -y install librewolf
-# mullvad
-sudo dnf config-manager addrepo --from-repofile=https://repository.mullvad.net/rpm/stable/mullvad.repo
-sudo dnf install mullvad-browser
-
-
-sudo dnf -y install @virtualization
-sudo usermod -a -G libvirt $(whoami)
-
-sudo dnf -y config-manager addrepo --from-repofile="https://download.docker.com/linux/fedora/docker-ce.repo"
-
-sudo dnf -y install docker-ce docker-ce-cli containerd.io
-sudo usermod -a -G docker $(whoami)
-
-
-## essentials
-
-sudo dnf -y remove yt-dlp
+sudo apt -y purge yt-dlp
 curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o ~/.local/bin/yt-dlp
 chmod a+rx ~/.local/bin/yt-dlp  # Make executable
 
