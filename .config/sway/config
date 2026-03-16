@@ -159,7 +159,7 @@ output * max_render_time off
     set $ps4 $mod+Alt+Print
     # Color Picker
     bindsym $mod+g exec grimpicker --copy
-    set $psf $(xdg-user-dir PICTURES)/screenshots/ps_$(date +"%Y%m%d%H%M%S").png
+    set $psf $(xdg-user-dir PICTURES)/screenshots/ps_$(date +"%Y%m%d-%H%M%S").png
     bindsym $ps1 exec grim - | wl-copy
     bindsym $ps2 exec grim -g "$(slurp)" - | wl-copy
     bindsym $ps3 exec grim $psf
