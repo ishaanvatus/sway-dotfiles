@@ -1,6 +1,6 @@
 #!/bin/sh
 
-PKGS="7z blueman cage calibre chafa chromium cowsay cups ddcutil default-fonts-cjk expat-devel fastfetch ffmpeg-devel ffmpegthumbnailer file-roller foliate fortune-mod freerdp fuzzel gammastep gimp gimp-resynthesizer gnome-themes-extra golang gparted grim grimpicker gstreamer1-plugins-bad-free-extras gutenprint gutenprint-devel gvfs-mtp gvfs-smb HandBrake HandBrake-gui hplip htop ImageMagick imlib2-devel iwlwifi-mvm-firmware kanshi keepassxc libexif-devel  libjxl-utils libreoffice libXft-devel light lxappearance lxpolkit lz4-devel mediawriter mkvtoolnix mkvtoolnix-gui moreutils mpv mpv-mpris ncdu neovim network-manager-applet NetworkManager-tui NetworkManager-wifi nmap pamixer pandoc pavucontrol perl-core playerctl plymouth-theme-solar potrace protontricks python3-setuptools qbittorrent qt5ct qt5-qtbase-devel qt6ct rpi-imager sddm-wayland-sway slurp steam stow strawberry sway swaylock terminus-fonts-console thunar thunar-archive-plugin tlp torbrowser-launcher ufw vlc waybar wayland-devel wayland-protocols-devel wdisplays xdg-user-dirs xsane zathura zathura-pdf-mupdf"
+PKGS="perl-File-MimeInfo google-noto-color-emoji-fonts google-noto-emoji-fonts 7z blueman cage calibre chafa chromium cowsay cups ddcutil default-fonts-cjk expat-devel fastfetch ffmpeg-devel ffmpegthumbnailer file-roller foliate fortune-mod freerdp fuzzel gammastep gimp gimp-resynthesizer gnome-themes-extra golang gparted grim grimpicker gstreamer1-plugins-bad-free-extras gutenprint gutenprint-devel gvfs-mtp gvfs-smb HandBrake HandBrake-gui hplip htop ImageMagick imlib2-devel iwlwifi-mvm-firmware kanshi keepassxc libexif-devel  libjxl-utils libreoffice libXft-devel light lxappearance lxpolkit lz4-devel mediawriter mkvtoolnix mkvtoolnix-gui moreutils mpv mpv-mpris ncdu neovim network-manager-applet NetworkManager-tui NetworkManager-wifi nmap opus-tools pamixer pandoc pavucontrol perl-core playerctl plymouth-theme-solar potrace protontricks python3-setuptools qbittorrent qt5ct qt5-qtbase-devel qt6ct rpi-imager sddm-wayland-sway slurp steam stow strawberry sway swaylock terminus-fonts-console thunar thunar-archive-plugin tlp torbrowser-launcher ufw vlc waybar wayland-devel wayland-protocols-devel wdisplays xdg-user-dirs xsane zathura zathura-pdf-mupdf"
 
 mkdir -p ~/desktop ~/documents ~/downloads ~/music ~/pictures/screenshots/mpv ~/public ~/templates ~/videos
 mkdir -p ~/.local/share/fonts/Mononoki ~/.local/bin ~/.local/src ~/.local/share/applications ~/.config/xfce4 
@@ -35,15 +35,15 @@ sudo dnf -y swap ffmpeg-free ffmpeg --allowerasing
 sudo dnf -y install @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
 sudo dnf -y install intel-media-driver 
 
-## packages
+# packages
 sudo dnf -y install ${PKGS}
 
 ## browser
 
 ## librewolf
-curl -fsSL https://repo.librewolf.net/librewolf.repo | pkexec tee /etc/yum.repos.d/librewolf.repo
+curl -fsSL https://repo.librewolf.net/librewolf.repo | sudo tee /etc/yum.repos.d/librewolf.repo
 sudo dnf -y install librewolf
-# mullvad
+## mullvad
 sudo dnf -y config-manager addrepo --from-repofile=https://repository.mullvad.net/rpm/stable/mullvad.repo
 sudo dnf -y install mullvad-browser
 
@@ -56,8 +56,6 @@ sudo dnf -y config-manager addrepo --from-repofile="https://download.docker.com/
 sudo dnf -y install docker-ce docker-ce-cli containerd.io
 sudo usermod -a -G docker $(whoami)
 
-
-## essentials
 
 sudo dnf -y remove yt-dlp
 curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o ~/.local/bin/yt-dlp
@@ -75,27 +73,33 @@ deno completions bash > ~/.bashrc.d/user/deno.bash
 
 ## flatpaks
 sudo dnf -y install flatpak
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
-flatpak -y install flathub com.obsproject.Studio
-flatpak -y install flathub org.gnome.Epiphany
-flatpak -y install flathub org.signal.Signal
-flatpak -y install flathub org.kde.kdenlive
-flatpak -y install flathub org.mozilla.Thunderbird
-
+flatpak -y install flathub \
+    com.obsproject.Studio \
+    org.gnome.Epiphany \
+    org.signal.Signal \
+    org.kde.kdenlive \
+    org.mozilla.Thunderbird
 ## services
 xdg-user-dirs-update
+
 systemctl --user enable kanshi.service
 systemctl --user start sway-session.target
 sudo systemctl enable tlp
+echo "START_CHARGE_THRESH_BAT0=40" | sudo tee -a /etc/tlp.conf
+echo "STOP_CHARGE_THRESH_BAT0=60" | sudo tee -a /etc/tlp.conf
 sudo systemctl enable docker
 sudo systemctl enable sddm
+
 sudo systemctl set-default graphical.target
+sudo grubby --update-kernel=ALL --args="rhgb quiet"
+sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 sudo plymouth-set-default-theme solar
 sudo dracut --force 
 
-sleep 2s
+sleep 10s
 echo "rebooting in 5 seconds press <C-c> to stop"
 sleep 10s
 
-sudo systemctl reboot
+sudo systemctl shutdown

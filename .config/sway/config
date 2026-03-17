@@ -17,14 +17,14 @@ exec_always systemctl --user start sway-session.target
 exec_always systemctl --user restart kanshi.service
 # Polkit
 exec --no-startup-id /usr/bin/lxpolkit
+exec --no-startup-id thunar --daemon
 exec nm-applet --indicator
 exec_always wl-paste --type text --watch cliphist store
 exec_always wl-paste --type image --watch cliphist store
 bindsym $mod+y exec cliphist-fuzzel-img
+bindsym $mod+e exec fuzzel-emoji
 # Your preferred terminal emulator
 # set $term foot
-# Launch Thunar
-bindsym $mod+e exec thunar
 # https://wiki.gentoo.org/wiki/Foot#Server_mode_configuration
 set $term footclient
 exec foot -s
@@ -32,7 +32,6 @@ exec foot -s
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 set $menu dmenu_path | fuzzel | xargs swaymsg exec --
-#set $menu dmenu_path | dmenu | xargs swaymsg exec --
 
 ### Output configuration
 #
