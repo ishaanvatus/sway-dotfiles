@@ -1,21 +1,5 @@
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
-end
-vim.opt.rtp:prepend(lazypath)
-
-require("lazy").setup({
-	{"morhetz/gruvbox"},
-	{"lervag/vimtex"},
-	{"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"}, 
-    {"https://github.com/neovim/nvim-lspconfig"},
-    {"RRethy/vim-hexokinase", build = "make"}
-})
-
+vim.pack.add{
+    {src = 'https://github.com/morhetz/gruvbox'},
+    {src = 'https://github.com/nvim-treesitter/nvim-treesitter', lazy = false, build = ':TSUpdate'},
+    {src = 'https://github.com/lervag/vimtex'}
+}

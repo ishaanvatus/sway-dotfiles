@@ -1,4 +1,5 @@
-vim.cmd([[ let g:vimtex_view_method = 'zathura' ]])
+vim.g.vimtex_view_method = 'zathura'
+
 vim.g.vimtex_compiler_latexmk = {
   options = {
     '-verbose',
@@ -8,6 +9,7 @@ vim.g.vimtex_compiler_latexmk = {
     '-shell-escape',  -- This enables Perl execution for Rubik
   }
 }
+
 vim.api.nvim_create_augroup('VimtexAutoCompile', { clear = true })
 vim.api.nvim_create_autocmd('BufReadPost', {
   group = 'VimtexAutoCompile',
@@ -16,4 +18,3 @@ vim.api.nvim_create_autocmd('BufReadPost', {
     vim.cmd('VimtexCompile')
   end,
 })
-
