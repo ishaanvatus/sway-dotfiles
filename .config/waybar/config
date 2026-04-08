@@ -1,6 +1,6 @@
 {
-    "start_hidden": false,
-	"layer": "top",	
+    "start_hidden": true,
+	"layer": "overlay",	
 	"top": "bottom",
     "height": 27,
     "bar_id": "bar-0",

@@ -92,7 +92,6 @@ output * max_render_time off
 #
 # Basics:
 #
-    bindsym $mod+Shift+W output "*" bg $(find $wallpapers_path -type f | shuf -n 1) fill
 
     # Start a terminal
     bindsym $mod+Return exec $term
@@ -287,6 +286,8 @@ bar {
     position bottom
     modifier $mod
 }
+bindsym $mod+n exec pkill -SIGUSR1 '^waybar$'
+
 exec --no-startup-id /usr/lib/xdg-desktop-portal-wlr -r 
 set $opacity 1.0
 for_window [class=".*"] opacity $opacity

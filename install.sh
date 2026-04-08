@@ -1,6 +1,6 @@
 #!/bin/sh
 
-PKGS="7z blueman cage calibre chafa chromium cowsay cups ddcutil default-fonts-cjk easytag expat-devel faketime fastfetch ffmpeg-devel ffmpegthumbnailer file-roller foliate fortune-mod freerdp fuzzel gammastep gimp gimp-resynthesizer gnome-themes-extra golang google-noto-color-emoji-fonts google-noto-emoji-fonts gparted grim grimpicker gstreamer1-plugins-bad-free-extras gutenprint gutenprint-devel gvfs gvfs-mtp gvfs-smb HandBrake HandBrake-gui hplip htop ImageMagick imlib2-devel iwlwifi-mvm-firmware kanshi keepassxc kernel-devel libexif-devel libjxl-utils libreoffice libXft-devel light lxappearance lxpolkit lz4-devel mediawriter mkvtoolnix mkvtoolnix-gui moreutils mpv mpv-mpris nasm ncdu network-manager-applet NetworkManager-tui NetworkManager-wifi ninja-build nmap opus-tools pamixer pandoc pavucontrol perl-core perl-File-MimeInfo playerctl plymouth-theme-hot-dog potrace protontricks python3-setuptools python3-tkinter qbittorrent qt5-qtbase-devel qt5ct qt6ct rpi-imager sddm-wayland-sway slurp sqlitebrowser steam stow strawberry sway swaylock terminus-fonts-console thunar thunar-archive-plugin thunar-volman tlp torbrowser-launcher tree-sitter-cli ufw vlc waybar wayland-devel wayland-protocols-devel wdisplays xdg-user-dirs xsane zathura zathura-pdf-mupdf"
+PKGS="7z blueman cage calibre chafa chromium cowsay cups ddcutil default-fonts-cjk easytag expat-devel faketime fastfetch ffmpeg-devel ffmpegthumbnailer file-roller foliate fortune-mod freerdp fuzzel gammastep gimp gimp-resynthesizer gnome-themes-extra golang google-noto-color-emoji-fonts google-noto-emoji-fonts gparted grim grimpicker gstreamer1-plugins-bad-free-extras gutenprint gutenprint-devel gvfs gvfs-mtp gvfs-smb HandBrake HandBrake-gui hplip htop ImageMagick imlib2-devel iwlwifi-mvm-firmware kanshi keepassxc kernel-devel libexif-devel libjxl-utils libreoffice libXft-devel light lxappearance lxpolkit lz4-devel mediawriter mkvtoolnix mkvtoolnix-gui moreutils mpv mpv-mpris nasm ncdu network-manager-applet NetworkManager-tui NetworkManager-wifi ninja-build nmap opus-tools pamixer pandoc pavucontrol perl-core perl-File-MimeInfo playerctl plymouth-theme-hot-dog potrace protontricks python3-setuptools python3-tkinter qbittorrent qt5-qtbase-devel qt5ct qt6ct rpi-imager sddm-wayland-sway slurp sqlitebrowser steam stow strawberry sway swaylock terminus-fonts-console thunar thunar-archive-plugin thunar-volman tlp torbrowser-launcher tree-sitter-cli ufw vlc waybar wayland-devel wayland-protocols-devel wdisplays xdg-user-dirs xsane zathura zathura-cb zathura-pdf-mupdf"
 
 mkdir -p ~/desktop ~/documents ~/downloads ~/music ~/pictures/screenshots/mpv ~/public ~/templates ~/videos ~/src
 mkdir -p ~/.local/share/fonts/Mononoki ~/.local/bin ~/.local/src ~/.local/share/applications ~/.config/xfce4
@@ -85,7 +85,7 @@ flatpak -y install flathub \
 xdg-user-dirs-update
 
 systemctl --user enable kanshi.service
-systemctl --user enable sway-session.target
+systemctl --user start sway-session.target
 sudo systemctl enable tlp
 echo "START_CHARGE_THRESH_BAT0=40" | sudo tee -a /etc/tlp.conf
 echo "STOP_CHARGE_THRESH_BAT0=60" | sudo tee -a /etc/tlp.conf
@@ -99,7 +99,7 @@ sudo plymouth-set-default-theme hot-dog
 sudo dracut --force 
 
 sleep 10s
-echo "rebooting in 5 seconds press <C-c> to stop"
+echo "powering off in 5 seconds press <C-c> to stop"
 sleep 10s
 
-sudo systemctl reboot
+sudo systemctl poweroff

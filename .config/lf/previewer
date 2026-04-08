@@ -1,8 +1,11 @@
 #!/bin/sh
 case "$(file -Lb --mime-type -- "$1")" in
   image/*)
-    #chafa -s "$2x$3" --animate off --polite on -t 1 --bg black "$1"
     chafa -f sixel -s "$2x$3" --animate off --polite on -t 1 --bg black "$1"
+    ;;
+  video/*)
+    ffmpegthumbnailer -i "$1" -o /tmp/thumb.png -s 0 -t 0
+    chafa -f sixel -s "$2x$3" --animate off --polite on -t 1 --bg black /tmp/thumb.png
     ;;
   text/*)
     cat "$1"
