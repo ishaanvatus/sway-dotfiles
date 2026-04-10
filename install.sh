@@ -4,6 +4,7 @@ PKGS="7z blueman cage calibre chafa chromium cowsay cups ddcutil default-fonts-c
 
 mkdir -p ~/desktop ~/documents ~/downloads ~/music ~/pictures/screenshots/mpv ~/public ~/templates ~/videos ~/src
 mkdir -p ~/.local/share/fonts/Mononoki ~/.local/bin ~/.local/src ~/.local/share/applications ~/.config/xfce4
+mkdir ~/.trash
 tar xf ~/.dotfiles/Mononoki.tar.xz -C ~/.local/share/fonts/Mononoki
 ln -sf $HOME/.dotfiles/.config/mimeapps.list $HOME/.local/share/applications/mimeapps.list
 
@@ -11,12 +12,18 @@ echo "fastestmirror=True" | sudo tee -a  /etc/dnf/dnf.conf
 echo "max_parallel_downloads=10" | sudo tee -a  /etc/dnf/dnf.conf
 sudo dnf -y upgrade --refresh
 
+# Laptop stays on when closing lid
 sudo mkdir /etc/systemd/logind.conf.d/
 echo "[Login]" | sudo tee -a  /etc/systemd/logind.conf.d/99-laptop-server.conf
 echo "HandleLidSwitch=ignore" | sudo tee -a  /etc/systemd/logind.conf.d/99-laptop-server.conf
 echo "HandleLidSwitchExternalPower=ignore" | sudo tee -a  /etc/systemd/logind.conf.d/99-laptop-server.conf
 echo "HandleLidSwitchDocked=ignore" | sudo tee -a /etc/systemd/logind.conf.d/99-laptop-server.conf
 
+# /etc/vconsole.conf
+echo "KEYMAP="us"" | sudo tee /etc/vconsole.conf
+echo "FONT="ter-132b"" | sudo tee -a /etc/vconsole.conf
+
+# udev rules for vial for my Unicomp Mini-M
 echo "# Unicomp Mini M" | sudo tee -a /etc/udev/rules.d/99-unicomp-mini-m.rules
 echo "KERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{serial}==\"*vial:f64c2b3c*\", ATTRS{idVendor}==\"16c0\", ATTRS{idProduct}==\"27db\", MODE=\"0660\", GROUP=\"wheel\", TAG+=\"uaccess\", TAG+=\"udev-acl\"" | sudo tee -a /etc/udev/rules.d/99-unicomp-mini-m.rules
 
@@ -99,6 +106,7 @@ sudo plymouth-set-default-theme hot-dog
 sudo dracut --force 
 
 sleep 10s
+
 echo "powering off in 5 seconds press <C-c> to stop"
 sleep 10s
 

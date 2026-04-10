@@ -10,6 +10,7 @@ Defaults:savantshuia timestamp_timeout=5
 ## [searxng docker install](https://docs.searxng.org/admin/installation-docker.html)
 ```
 mkdir -p ~/.searxng/config/ ~/.searxng/data/
+cd ~/.searxng/
 docker run --name searxng -d \
     -p 8888:8080 --restart always \
     -v "./config/:/etc/searxng/" \
