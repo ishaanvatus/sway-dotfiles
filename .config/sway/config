@@ -18,7 +18,6 @@ exec_always systemctl --user restart kanshi.service
 # Polkit
 exec --no-startup-id /usr/bin/lxpolkit
 exec --no-startup-id thunar --daemon
-exec --no-startup-id strawberry
 exec --no-startup-id /usr/libexec/gvfs-udisks2-volume-monitor
 exec nm-applet --indicator
 exec_always wl-paste --type text --watch cliphist store
