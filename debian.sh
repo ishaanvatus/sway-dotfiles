@@ -75,14 +75,14 @@ deno completions bash > ~/.bashrc.d/user/deno.bash
 sudo apt-get -y install flatpak
 sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
-flatpak -y install flathub \
-    com.obsproject.Studio \
-    org.gnome.Epiphany \
-    org.signal.Signal \
-    org.kde.kdenlive \
-    org.mozilla.Thunderbird \
-    io.github.ciromattia.kcc \
-    org.jdownloader.JDownloader
+#flatpak -y install flathub \
+#    com.obsproject.Studio \
+#    org.gnome.Epiphany \
+#    org.signal.Signal \
+#    org.kde.kdenlive \
+#    org.mozilla.Thunderbird \
+#    io.github.ciromattia.kcc \
+#    org.jdownloader.JDownloader
 ## services
 xdg-user-dirs-update
 
