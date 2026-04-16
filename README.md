@@ -23,12 +23,14 @@ docker run --name searxng -d \
 ```
 ## Apps left to install
 - [Anki](https://apps.ankiweb.net/#downloads), [instructions](https://docs.ankiweb.net/platform/linux/installing.html)
-- [MakeMKV](https://forum.makemkv.com/forum/viewtopic.php?f=3&t=224)
+- [MakeMKV](https://forum.makemkv.com/forum/viewtopic.php?f=3&t=224), [Beta Key](https://forum.makemkv.com/forum/viewtopic.php?t=1053)
 - [nsxiv](https://codeberg.org/nsxiv/nsxiv)
 - [TeX Live](https://www.tug.org/texlive/quickinstall.html)
 - [Vial](https://get.vial.today/download/), make a Vial.desktop in ~/.local/share/applications
 - [Strawberry Spotify Plugin](https://wiki.strawberrymusicplayer.org/wiki/Installing_GStreamer_Spotify_plugin)
 - [Neovim](https://neovim.io/doc/install/#install-from-source)
+- [wl-clipboard](https://github.com/bugaevc/wl-clipboard/blob/master/BUILDING.md)
+    - due to the upstream not including the feature from this [keepassxc issue](https://github.com/keepassxreboot/keepassxc/discussions/10704#discussioncomment-14200858), smh 🫩
 
 ### Librewolf
 - Extensions
