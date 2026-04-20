@@ -1,5 +1,24 @@
-# Post Install 
-## /etc/sudoers
+# How to use this repo
+- This scripts sets up a full Sway desktop experience configured to my personal usage, pls try it out.
+- Get the [Fedora Linux](https://fedoraproject.org/) [Everything](https://fedoraproject.org/misc/#everything) ISO (netinstaller)
+- Use the partition scheme given in PARTITION_SCHEME.md
+- Under "Software Selection"
+    - Under "Base Environment" pick "Fedora Custom Operating System" 
+    - Under "Add-Ons for Selected Environment" pick Standard, C Development Tools and Libraries & Development Tools
+- [Optional] Don't enable root
+- Finish the rest of the steps in the installer and boot into your system, you may need ethernet or usb-tethering
+- The wifi drivers included are iwlwifi-mvm-firmware, graphics drivers for intel integrated, adapt the PKGS in bootstrap.sh
+```
+git clone git@github.com:ishaanvatus/dotfiles.git .dotfiles ## require ssh keys, (eg: transfer via usb)
+## or when it's public repo git clone https://github.com/ishaanvatus/dotfiles .dotfiles
+cd .dotfiles
+bash bootstrap.sh
+## the script will ask for sudo a couple of times
+## installer options for rustup and deno, just follow the echoed instructions (don't add anything to path and don't add any completions)
+```
+
+## Post Install 
+### /etc/sudoers
 ```
 # specify the timeout type (usual default=tty)
 Defaults:savantshuia timestamp_type=global
@@ -7,7 +26,7 @@ Defaults:savantshuia timestamp_type=global
 # specify the timeout interval (usual default=15)
 Defaults:savantshuia timestamp_timeout=5
 ```
-## [searxng docker install](https://docs.searxng.org/admin/installation-docker.html)
+### [searxng docker install](https://docs.searxng.org/admin/installation-docker.html)
 ```
 mkdir -p ~/.searxng/config/ ~/.searxng/data/
 ```
@@ -21,7 +40,7 @@ docker run --name searxng -d \
     -v "./data/:/var/cache/searxng/" \
     docker.io/searxng/searxng:latest
 ```
-## Apps left to install
+### Apps left to install
 - [Anki](https://apps.ankiweb.net/#downloads), [instructions](https://docs.ankiweb.net/platform/linux/installing.html)
 - [MakeMKV](https://forum.makemkv.com/forum/viewtopic.php?f=3&t=224), [Beta Key](https://forum.makemkv.com/forum/viewtopic.php?t=1053)
 - [nsxiv](https://codeberg.org/nsxiv/nsxiv)

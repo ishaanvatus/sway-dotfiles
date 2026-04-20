@@ -20,8 +20,8 @@ echo "HandleLidSwitchExternalPower=ignore" | sudo tee -a  /etc/systemd/logind.co
 echo "HandleLidSwitchDocked=ignore" | sudo tee -a /etc/systemd/logind.conf.d/99-laptop-server.conf
 
 # /etc/vconsole.conf
-echo "KEYMAP="us"" | sudo tee /etc/vconsole.conf
-echo "FONT="ter-132b"" | sudo tee -a /etc/vconsole.conf
+echo 'KEYMAP="us"' | sudo tee /etc/vconsole.conf
+echo 'FONT="ter-132b"' | sudo tee -a /etc/vconsole.conf
 
 # udev rules for vial for my Unicomp Mini-M
 echo "# Unicomp Mini M" | sudo tee -a /etc/udev/rules.d/99-unicomp-mini-m.rules
