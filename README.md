@@ -64,5 +64,5 @@ docker run --name searxng -d \
 - /etc/libvirt/network.conf: change 
     ```
     #firewall_backend = "nftables"
-    firewall_backend = "iptable"
+    firewall_backend = "iptables"
     ```
