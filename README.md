@@ -58,3 +58,11 @@ docker run --name searxng -d \
 - Thunderbird 
 - Signal
 - Whatsapp Web
+
+### MISC
+- logseq maybe
+- /etc/libvirt/network.conf: change 
+    ```
+    #firewall_backend = "nftables"
+    firewall_backend = "iptable"
+    ```
