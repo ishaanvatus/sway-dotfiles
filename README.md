@@ -1,16 +1,16 @@
 # How to use this repo
-- This scripts sets up a full Sway desktop experience configured to my personal usage, pls try it out.
+- Firstly: free free to report any issues, I'll get around to it if I can replicate it.
+- This scripts sets up a full [Sway](https://swaywm.org/) desktop experience configured to my personal usage, pls try it out.
 - Get the [Fedora Linux](https://fedoraproject.org/) [Everything](https://fedoraproject.org/misc/#everything) ISO (netinstaller)
-- Use the partition scheme given in PARTITION_SCHEME.md
+- Use the partition scheme given in [PARTITION_SCHEME.md](./PARTITION_SCHEME.md)
 - Under "Software Selection"
     - Under "Base Environment" pick "Fedora Custom Operating System" 
     - Under "Add-Ons for Selected Environment" pick Standard, C Development Tools and Libraries & Development Tools
-- [Optional] Don't enable root
+- [Disable root](https://wiki.archlinux.org/title/Sudo#Disable_root_login)
 - Finish the rest of the steps in the installer and boot into your system, you may need ethernet or usb-tethering
 - The wifi drivers included are iwlwifi-mvm-firmware, graphics drivers for intel integrated, adapt the PKGS in bootstrap.sh
 ```
-git clone git@github.com:ishaanvatus/dotfiles.git .dotfiles ## require ssh keys, (eg: transfer via usb)
-## or when it's public repo git clone https://github.com/ishaanvatus/dotfiles .dotfiles
+git clone https://github.com/ishaanvatus/dotfiles .dotfiles
 cd .dotfiles
 bash bootstrap.sh
 ## the script will ask for sudo a couple of times
@@ -18,13 +18,13 @@ bash bootstrap.sh
 ```
 
 ## Post Install 
-### /etc/sudoers
+### /etc/sudoers (replace "john" with your username)
 ```
 # specify the timeout type (usual default=tty)
-Defaults:savantshuia timestamp_type=global
+Defaults:john timestamp_type=global
 
 # specify the timeout interval (usual default=15)
-Defaults:savantshuia timestamp_timeout=5
+Defaults:john timestamp_timeout=5
 ```
 ### [searxng docker install](https://docs.searxng.org/admin/installation-docker.html)
 ```
@@ -40,22 +40,23 @@ docker run --name searxng -d \
     -v "./data/:/var/cache/searxng/" \
     docker.io/searxng/searxng:latest
 ```
+- http://localhost:8888/search?q=%s
 ### Apps left to install
-- [Anki](https://apps.ankiweb.net/#downloads), [instructions](https://docs.ankiweb.net/platform/linux/installing.html)
-- [MakeMKV](https://forum.makemkv.com/forum/viewtopic.php?f=3&t=224), [Beta Key](https://forum.makemkv.com/forum/viewtopic.php?t=1053)
+- [wl-clipboard](https://github.com/bugaevc/wl-clipboard/blob/master/BUILDING.md)
+    - due to the upstream not including the feature from this [keepassxc issue](https://github.com/keepassxreboot/keepassxc/discussions/10704#discussioncomment-14200858), smh 🫩
+- [Neovim](https://neovim.io/doc/install/#install-from-source)
 - [nsxiv](https://codeberg.org/nsxiv/nsxiv)
 - [TeX Live](https://www.tug.org/texlive/quickinstall.html)
 - [Vial](https://get.vial.today/download/), make a Vial.desktop in ~/.local/share/applications
 - [Strawberry Spotify Plugin](https://wiki.strawberrymusicplayer.org/wiki/Installing_GStreamer_Spotify_plugin)
-- [Neovim](https://neovim.io/doc/install/#install-from-source)
-- [wl-clipboard](https://github.com/bugaevc/wl-clipboard/blob/master/BUILDING.md)
-    - due to the upstream not including the feature from this [keepassxc issue](https://github.com/keepassxreboot/keepassxc/discussions/10704#discussioncomment-14200858), smh 🫩
+- [Anki](https://apps.ankiweb.net/#downloads), [instructions](https://docs.ankiweb.net/platform/linux/installing.html)
+- [MakeMKV](https://forum.makemkv.com/forum/viewtopic.php?f=3&t=224), [Beta Key](https://forum.makemkv.com/forum/viewtopic.php?t=1053)
 
 ### Librewolf
 - Extensions
     - [Vimium](https://vimium.github.io/)
-    - [TWP](https://github.com/FilipePS/Traduzir-paginas-web)
     - [Dark Reader](https://github.com/darkreader/darkreader) 
+    - [TWP](https://github.com/FilipePS/Traduzir-paginas-web)
     - [TamperMonkey](https://www.tampermonkey.net/)
 - Turn off history deletion
 - Startup Behaviour
@@ -64,22 +65,17 @@ docker run --name searxng -d \
 ### Chromium
 - Extensions
     - [uBlock Origin Lite](https://chromewebstore.google.com/detail/ublock-origin-lite/ddkjiahejlhfcafbddmgiahcphecmpfh?hl=en)
-    - nothing else, [avoid using chromium](https://fractionalciso.com/the-secret-web-browser-monopoly/)
 - Startup Behaviour
 - Download Behaviour
+- Whatsapp Web
 
 ### Dark Theme
 - qt5ct dark theme & qt6ct dark theme: darker
 - lxappearance dark theme: Adwaita Dark
 - librewolf, anki, calibre, chromium, thunderbird, foliate
 
-### Email and Messaging
-- Thunderbird 
-- Signal
-- Whatsapp Web
-
 ### MISC
-- logseq maybe
+- logseq maybe (flatpak)
 - /etc/libvirt/network.conf: change 
     ```
     #firewall_backend = "nftables"
