@@ -1,7 +1,7 @@
 #!/bin/sh
 
 
-PKGS="7z blueman cage calibre chafa chromium cowsay cups dav1d ddcutil default-fonts-cjk easytag expat-devel faketime fastfetch ffmpeg-devel ffmpegthumbnailer file-roller foliate fortune-mod freerdp fuzzel gammastep gimp gimp-resynthesizer gnome-themes-extra golang google-noto-color-emoji-fonts google-noto-emoji-fonts gparted grim grimpicker gstreamer1-devel gstreamer1-plugins-bad-free-extras gstreamer1-plugins-base-devel gutenprint gutenprint-devel gvfs gvfs-mtp gvfs-smb HandBrake HandBrake-gui hplip htop ImageMagick imlib2-devel inkscape iwlwifi-mvm-firmware kanshi keepassxc kernel-devel krita libexif-devel libjxl-utils libreoffice libunrar libXcursor-devel libXft-devel libXi-devel libXinerama-devel libxkbcommon-devel libXrandr-devel light lxappearance lxpolkit lz4-devel mediawriter meson mkvtoolnix mkvtoolnix-gui moreutils mpv mpv-mpris nasm ncdu network-manager-applet NetworkManager-tui NetworkManager-wifi ninja-build nmap opus-tools pamixer pandoc pavucontrol perl-core perl-File-MimeInfo playerctl plymouth-theme-hot-dog potrace protontricks python3-setuptools python3-tkinter qbittorrent qt5-qtbase-devel qt5ct qt6ct rpi-imager sddm-wayland-sway slurp sox sqlitebrowser steam stow strawberry sway swaylock terminus-fonts-console thunar thunar-archive-plugin thunar-volman tlp torbrowser-launcher tree-sitter-cli ufw unrar vlc waybar wayland-devel wayland-protocols-devel wdisplays xdg-user-dirs xsane zathura zathura-cb zathura-pdf-mupdf"
+PKGS="7z blueman cage calibre chafa chromium cowsay cups dav1d ddcutil default-fonts-cjk easytag expat-devel faketime fastfetch ffmpeg-devel ffmpegthumbnailer file-roller foliate fortune-mod freerdp fuzzel gammastep gimp gimp-resynthesizer gnome-themes-extra golang google-noto-color-emoji-fonts google-noto-emoji-fonts gparted grim grimpicker gstreamer1-devel gstreamer1-plugins-bad-free-extras gstreamer1-plugins-base-devel gutenprint gutenprint-devel gvfs gvfs-mtp gvfs-smb HandBrake HandBrake-gui hplip htop ImageMagick imlib2-devel inkscape iwlwifi-mvm-firmware kanshi keepassxc kernel-devel krita libexif-devel libjxl-utils libreoffice libunrar libXcursor-devel libXft-devel libXi-devel libXinerama-devel libxkbcommon-devel libXrandr-devel light lxappearance lxpolkit lz4-devel mediawriter meson mkvtoolnix mkvtoolnix-gui moreutils mpv mpv-mpris nasm ncdu network-manager-applet NetworkManager-tui NetworkManager-wifi ninja-build nmap opus-tools pamixer pandoc parallel pavucontrol perl-core perl-File-MimeInfo playerctl plymouth-theme-spinfinity potrace protontricks python3-setuptools python3-tkinter qbittorrent qpwgraph qt5-qtbase-devel qt5ct qt6ct rpi-imager sddm-wayland-sway slurp sox sqlitebrowser steam stow strawberry sway swaylock terminus-fonts-console thunar thunar-archive-plugin thunar-volman tlp torbrowser-launcher tree-sitter-cli ufw unrar vlc waybar wayland-devel wayland-protocols-devel wdisplays xdg-user-dirs xsane zathura zathura-cb zathura-pdf-mupdf"
 
 mkdir -p ~/desktop ~/documents ~/downloads ~/music ~/pictures/screenshots/mpv ~/public ~/templates ~/videos/recordings ~/src
 mkdir -p ~/.local/share/fonts/Mononoki ~/.local/bin ~/.local/src ~/.local/share/applications ~/.config/xfce4
@@ -102,7 +102,7 @@ sudo systemctl enable sddm
 sudo systemctl set-default graphical.target
 sudo grubby --update-kernel=ALL --args="rhgb quiet"
 sudo grub2-mkconfig -o /boot/grub2/grub.cfg
-sudo plymouth-set-default-theme hot-dog
+sudo plymouth-set-default-theme spinfinity
 sudo dracut --force 
 
 echo "rebooting in 10 seconds press <C-c> to stop"

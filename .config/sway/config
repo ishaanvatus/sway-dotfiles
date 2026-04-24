@@ -15,6 +15,8 @@ set $up k
 set $right l
 exec_always systemctl --user start sway-session.target
 exec_always systemctl --user restart kanshi.service
+# Autostart qBittorrent
+exec qbittorrent
 # Polkit
 exec --no-startup-id /usr/bin/lxpolkit
 exec --no-startup-id thunar --daemon
