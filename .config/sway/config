@@ -13,8 +13,7 @@ set $left h
 set $down j
 set $up k
 set $right l
-exec_always systemctl --user start sway-session.target
-exec_always systemctl --user restart kanshi.service
+exec systemctl --user start sway-session.target 
 # Autostart qBittorrent
 exec qbittorrent
 # Polkit
@@ -143,7 +142,7 @@ output * max_render_time off
 #
 # Workspaces:
 #
-    set $lock_image $HOME/pictures/42ac72a5e28b92b87c67769167cf82dd.jpg
+    set $lock_image $HOME/pictures/5812ce703736b6ea86792e5fa382bc6.jxl
     bindsym $mod+Alt+L exec swaylock -e -f -i $lock_image
     bindsym --locked XF86AudioMute exec --no-startup-id pamixer -t
     bindsym --locked XF86AudioRaiseVolume exec --no-startup-id pamixer -i 2
