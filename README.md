@@ -7,7 +7,7 @@
     - Under "Base Environment" pick "Fedora Custom Operating System" 
     - Under "Add-Ons for Selected Environment" pick Standard, C Development Tools and Libraries & Development Tools
 - [Disable root](https://wiki.archlinux.org/title/Sudo#Disable_root_login)
-- Finish the rest of the steps in the installer and boot into your system, you may need ethernet or usb-tethering
+- Finish the rest of the steps in the installer and boot into your system, you will mostly likely need ethernet or usb-tethering
 - The wifi drivers included are iwlwifi-mvm-firmware, graphics drivers for intel integrated, adapt the PKGS in bootstrap.sh
 ```
 git clone https://github.com/ishaanvatus/dotfiles .dotfiles
@@ -36,6 +36,7 @@ cd ~/.searxng/
 ```
 docker run --name searxng -d \
     -p 8888:8080 --restart always \
+    --dns 9.9.9.9 --dns 149.112.112.112 \
     -v "./config/:/etc/searxng/" \
     -v "./data/:/var/cache/searxng/" \
     docker.io/searxng/searxng:latest
