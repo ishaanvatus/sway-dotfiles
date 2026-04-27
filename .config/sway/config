@@ -14,8 +14,6 @@ set $down j
 set $up k
 set $right l
 exec systemctl --user start sway-session.target 
-# Autostart qBittorrent
-exec qbittorrent
 # Polkit
 exec --no-startup-id /usr/bin/lxpolkit
 exec --no-startup-id thunar --daemon
