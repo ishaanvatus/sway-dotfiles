@@ -5,8 +5,7 @@ if [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
 
-# User specific environment and startup programs
+ User specific environment and startup programs
 if [[ -z $DISPLAY && $(tty) == /dev/tty1 ]]; then
-    exec sway
+    sway
 fi
-. "$HOME/.cargo/env"

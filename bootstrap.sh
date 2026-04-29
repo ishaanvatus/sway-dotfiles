@@ -4,11 +4,10 @@
 PKGS="7z blueman cage calibre chafa chromium cowsay cups dav1d ddcutil default-fonts-cjk easytag expat-devel faketime fastfetch ffmpeg-devel ffmpegthumbnailer file-roller foliate fortune-mod freerdp fuse fuse-libs fuzzel gammastep gimp gimp-resynthesizer gnome-themes-extra golang google-noto-color-emoji-fonts google-noto-emoji-fonts gparted grim grimpicker gstreamer1-devel gstreamer1-plugins-bad-free-extras gstreamer1-plugins-base-devel gutenprint gutenprint-devel gvfs gvfs-mtp gvfs-smb HandBrake HandBrake-gui hplip htop hugin hw-probe ImageMagick imlib2-devel inkscape iwlwifi-mvm-firmware kanshi keepassxc kernel-devel krita libexif-devel libjxl-utils libreoffice libunrar libXcursor-devel libXft-devel libXi-devel libXinerama-devel libxkbcommon-devel libXrandr-devel light lshw lxappearance lxpolkit lz4-devel mediawriter meson mkvtoolnix mkvtoolnix-gui moreutils mpv mpv-mpris nasm ncdu network-manager-applet NetworkManager-tui NetworkManager-wifi ninja-build nmap opus-tools pamixer pandoc parallel pavucontrol perl-core perl-File-MimeInfo playerctl plymouth-theme-spinfinity potrace protontricks python3-setuptools python3-tkinter qbittorrent qpwgraph qt5-qtbase-devel qt5ct qt6ct rpi-imager slurp sox sqlitebrowser steam stow strawberry sway swaylock terminus-fonts-console thunar thunar-archive-plugin thunar-volman tlp torbrowser-launcher tree-sitter-cli ufw unrar vlc waybar waydroid wayland-devel wayland-protocols-devel wdisplays weechat xdg-user-dirs xsane zathura zathura-cb zathura-pdf-mupdf"
 
 mkdir -p ~/desktop ~/documents ~/downloads ~/music ~/pictures/screenshots/mpv ~/public ~/templates ~/videos/recordings ~/src
-mkdir -p ~/.local/share/fonts/Mononoki ~/.local/bin ~/.local/src ~/.local/share/applications ~/.config/xfce4
+mkdir -p ~/.local/share/fonts/Mononoki ~/.local/bin ~/.local/src ~/.local/share/applications ~/.config/xfce4 ~/.config/gtk-3.0
 tar xf ~/.dotfiles/Mononoki.tar.xz -C ~/.local/share/fonts/Mononoki
 ln -sf $HOME/.dotfiles/.config/mimeapps.list $HOME/.local/share/applications/mimeapps.list
 
-echo "fastestmirror=True" | sudo tee -a  /etc/dnf/dnf.conf
 echo "max_parallel_downloads=10" | sudo tee -a  /etc/dnf/dnf.conf
 sudo dnf -y upgrade --refresh
 
@@ -62,7 +61,7 @@ sudo dnf -y install docker-ce docker-ce-cli containerd.io
 sudo usermod -a -G docker $(whoami)
 
 
-sudo dnf -y remove yt-dlp
+#sudo dnf -y remove yt-dlp
 curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o ~/.local/bin/yt-dlp
 chmod a+rx ~/.local/bin/yt-dlp  # Make executable
 
