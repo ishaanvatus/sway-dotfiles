@@ -6803,7 +6803,7 @@ _deno() {
             return 0
             ;;
         deno__upgrade)
-            opts="-h -L -q -f --unstable --unstable-bare-node-builtins --unstable-broadcast-channel --unstable-bundle --unstable-byonm --unstable-cron --unstable-detect-cjs --unstable-ffi --unstable-fs --unstable-http --unstable-kv --unstable-lazy-dynamic-imports --unstable-lockfile-v5 --unstable-net --unstable-no-legacy-abort --unstable-node-globals --unstable-npm-lazy-caching --unstable-otel --unstable-process --unstable-raw-imports --unstable-sloppy-imports --unstable-subdomain-wildcards --unstable-temporal --unstable-tsgo --unstable-unsafe-proto --unstable-vsock --unstable-webgpu --unstable-worker-options --help --log-level --quiet --version --output --dry-run --force --canary --rc --checksum --cert --unsafely-ignore-certificate-errors [VERSION]..."
+            opts="-h -L -q -f --unstable --unstable-bare-node-builtins --unstable-broadcast-channel --unstable-bundle --unstable-byonm --unstable-cron --unstable-detect-cjs --unstable-ffi --unstable-fs --unstable-http --unstable-kv --unstable-lazy-dynamic-imports --unstable-lockfile-v5 --unstable-net --unstable-no-legacy-abort --unstable-node-globals --unstable-npm-lazy-caching --unstable-otel --unstable-process --unstable-raw-imports --unstable-sloppy-imports --unstable-subdomain-wildcards --unstable-temporal --unstable-tsgo --unstable-unsafe-proto --unstable-vsock --unstable-webgpu --unstable-worker-options --help --log-level --quiet --version --output --dry-run --force --canary --rc --checksum --no-delta --cert --unsafely-ignore-certificate-errors [VERSION]..."
             if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
                 COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
                 return 0

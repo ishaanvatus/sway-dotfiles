@@ -48,6 +48,12 @@ docker run --name searxng -d \
 - [Neovim](https://neovim.io/doc/install/#install-from-source)
 - [nsxiv](https://codeberg.org/nsxiv/nsxiv)
 - [TeX Live](https://www.tug.org/texlive/quickinstall.html)
+    ```
+    curl -L -o install-tl-unx.tar.gz https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+    zcat < install-tl-unx.tar.gz | tar xf -
+    cd install-tl-2*
+    sudo perl ./install-tl --no-interaction
+    ```
 - [Vial](https://get.vial.today/download/), make a Vial.desktop in ~/.local/share/applications
 - [Strawberry Spotify Plugin](https://wiki.strawberrymusicplayer.org/wiki/Installing_GStreamer_Spotify_plugin)
 - [Anki](https://apps.ankiweb.net/#downloads), [instructions](https://docs.ankiweb.net/platform/linux/installing.html)
