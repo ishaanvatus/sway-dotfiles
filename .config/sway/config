@@ -286,7 +286,7 @@ bar {
 }
 bindsym $mod+n exec pkill -SIGUSR1 '^waybar$'
 
-exec --no-startup-id /usr/lib/xdg-desktop-portal-wlr -r 
+exec --no-startup-id /usr/libexec/xdg-desktop-portal-wlr -r 
 set $opacity 1.0
 for_window [class=".*"] opacity $opacity
 for_window [app_id=".*"] opacity $opacity

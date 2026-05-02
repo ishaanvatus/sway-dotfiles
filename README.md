@@ -56,6 +56,7 @@ docker run --name searxng -d \
     ```
 - [Vial](https://get.vial.today/download/), make a Vial.desktop in ~/.local/share/applications
 - [Strawberry Spotify Plugin](https://wiki.strawberrymusicplayer.org/wiki/Installing_GStreamer_Spotify_plugin)
+- [chafa](https://github.com/hpjansson/chafa#installing)
 - [Anki](https://apps.ankiweb.net/#downloads), [instructions](https://docs.ankiweb.net/platform/linux/installing.html)
 - [MakeMKV](https://forum.makemkv.com/forum/viewtopic.php?f=3&t=224), [Beta Key](https://forum.makemkv.com/forum/viewtopic.php?t=1053)
 - [Ranger](https://github.com/ranger/ranger#installing-from-a-clone), still using ranger since lf is not fully configured like ranger yet
