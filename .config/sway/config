@@ -15,9 +15,10 @@ set $up k
 set $right l
 exec systemctl --user start sway-session.target 
 # Polkit
-exec --no-startup-id /usr/bin/lxpolkit
-exec --no-startup-id thunar --daemon
-exec --no-startup-id /usr/libexec/gvfs-udisks2-volume-monitor
+# exec /usr/libexec/xfce-polkit
+exec /usr/libexec/polkit-mate-authentication-agent-1
+exec thunar --daemon
+exec /usr/libexec/gvfs-udisks2-volume-monitor
 exec nm-applet --indicator
 exec_always wl-paste --type text --watch cliphist store
 exec_always wl-paste --type image --watch cliphist store

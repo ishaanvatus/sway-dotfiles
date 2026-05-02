@@ -1,7 +1,7 @@
 #!/bin/sh
 
 
-PKGS="gtk-doc gtk3-devel libavif-devel libheif-devel libjpeg-devel librsvg2-devel libtiff-devel libwebp-devel libjxl-devel papirus-icon-theme arc-theme 7z blueman cage calibre chafa chromium cowsay cups dav1d ddcutil default-fonts-cjk easytag expat-devel faketime fastfetch ffmpeg-devel ffmpegthumbnailer file-roller foliate fortune-mod freerdp fuse fuse-libs fuzzel gammastep gimp gimp-resynthesizer golang google-noto-color-emoji-fonts google-noto-emoji-fonts gparted grim grimpicker gstreamer1-devel gstreamer1-plugins-bad-free-extras gstreamer1-plugins-base-devel gutenprint gutenprint-devel gvfs gvfs-mtp gvfs-smb HandBrake HandBrake-gui hplip htop hugin hw-probe ImageMagick imlib2-devel inkscape iwlwifi-mvm-firmware kanshi keepassxc kernel-devel krita libexif-devel libjxl-utils libreoffice libunrar libXcursor-devel libXft-devel libXi-devel libXinerama-devel libxkbcommon-devel libXrandr-devel light lshw lxappearance lxpolkit lz4-devel mediawriter meson mkvtoolnix mkvtoolnix-gui moreutils mpv mpv-mpris nasm ncdu network-manager-applet NetworkManager-tui NetworkManager-wifi ninja-build nmap opus-tools pamixer pandoc parallel pavucontrol perl-core perl-File-MimeInfo playerctl plymouth-theme-spinfinity potrace protontricks python3-setuptools python3-tkinter qbittorrent qpwgraph qt5-qtbase-devel qt5ct qt6ct rpi-imager slurp sox sqlitebrowser steam stow strawberry sway swaylock terminus-fonts-console thunar thunar-archive-plugin thunar-volman tlp torbrowser-launcher tree-sitter-cli ufw unrar vlc waybar waydroid wayland-devel wayland-protocols-devel wdisplays weechat xdg-user-dirs xsane zathura zathura-cb zathura-pdf-mupdf"
+PKGS="gtk-doc gtk3-devel libavif-devel libheif-devel libjpeg-devel librsvg2-devel libtiff-devel libwebp-devel libjxl-devel adw-gtk3-theme adwaita-cursor-theme adwaita-icon-theme 7z blueman cage calibre chafa chromium cowsay cups dav1d ddcutil default-fonts-cjk easytag expat-devel faketime fastfetch ffmpeg-devel ffmpegthumbnailer file-roller foliate fortune-mod freerdp fuse fuse-libs fuzzel gammastep gimp gimp-resynthesizer golang google-noto-color-emoji-fonts google-noto-emoji-fonts gparted grim grimpicker gstreamer1-devel gstreamer1-plugins-bad-free-extras gstreamer1-plugins-base-devel gutenprint gutenprint-devel gvfs gvfs-mtp gvfs-smb HandBrake HandBrake-gui hplip htop hugin hw-probe ImageMagick imlib2-devel inkscape iwlwifi-mvm-firmware kanshi keepassxc kernel-devel krita libexif-devel libjxl-utils libreoffice libunrar libXcursor-devel libXft-devel libXi-devel libXinerama-devel libxkbcommon-devel libXrandr-devel light lshw mate-polkit lz4-devel mediawriter meson mkvtoolnix mkvtoolnix-gui moreutils mpv mpv-mpris nasm ncdu network-manager-applet NetworkManager-tui NetworkManager-wifi ninja-build nmap opus-tools pamixer pandoc parallel pavucontrol perl-core perl-File-MimeInfo playerctl plymouth-theme-spinfinity potrace protontricks python3-setuptools python3-tkinter qbittorrent qpwgraph qt5-qtbase-devel qt5ct qt6ct rpi-imager slurp sox sqlitebrowser steam stow strawberry sway swaylock terminus-fonts-console thunar thunar-archive-plugin thunar-volman tlp torbrowser-launcher tree-sitter-cli ufw unrar vlc waybar waydroid wayland-devel wayland-protocols-devel wdisplays weechat xdg-user-dirs xsane zathura zathura-cb zathura-pdf-mupdf"
 
 mkdir -p ~/desktop ~/documents ~/downloads ~/music ~/pictures/screenshots/mpv ~/public ~/templates ~/videos/recordings ~/src
 mkdir -p ~/.local/share/fonts/Mononoki ~/.local/bin ~/.local/src ~/.local/share/applications ~/.config/xfce4 ~/.config/gtk-3.0
@@ -79,14 +79,6 @@ deno completions bash > ~/.bashrc.d/user/deno.bash
 sudo dnf -y install flatpak
 sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
-flatpak -y install flathub \
-    com.obsproject.Studio \
-    org.gnome.Epiphany \
-    org.signal.Signal \
-    org.kde.kdenlive \
-    org.mozilla.Thunderbird \
-    io.github.ciromattia.kcc \
-    org.jdownloader.JDownloader
 ## services
 xdg-user-dirs-update
 

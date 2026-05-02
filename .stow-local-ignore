@@ -3,4 +3,5 @@ LICENSE
 README.md
 PARTITION_SCHEME.md
 bootstrap.sh
+flatpaks.sh
 Mononoki.tar.xz
