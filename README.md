@@ -49,6 +49,9 @@ docker run --name searxng -d \
     - due to the upstream not including the feature from this [keepassxc issue](https://github.com/keepassxreboot/keepassxc/discussions/10704#discussioncomment-14200858), smh 🫩
 - [Neovim](https://neovim.io/doc/install/#install-from-source)
 - [nsxiv](https://codeberg.org/nsxiv/nsxiv)
+- [nwg-look](https://github.com/nwg-piotr/nwg-look)
+- [chafa](https://github.com/hpjansson/chafa#installing)
+- [Anki](https://apps.ankiweb.net/#downloads), [instructions](https://docs.ankiweb.net/platform/linux/installing.html)
 - [TeX Live](https://www.tug.org/texlive/quickinstall.html)
     ```
     curl -L -o install-tl-unx.tar.gz https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
@@ -56,13 +59,9 @@ docker run --name searxng -d \
     cd install-tl-2*
     sudo perl ./install-tl --no-interaction
     ```
-- [Vial](https://get.vial.today/download/), make a Vial.desktop in ~/.local/share/applications
 - [Strawberry Spotify Plugin](https://wiki.strawberrymusicplayer.org/wiki/Installing_GStreamer_Spotify_plugin)
-- [chafa](https://github.com/hpjansson/chafa#installing)
-- [nwg-look](https://github.com/nwg-piotr/nwg-look)
-- [Anki](https://apps.ankiweb.net/#downloads), [instructions](https://docs.ankiweb.net/platform/linux/installing.html)
 - [MakeMKV](https://forum.makemkv.com/forum/viewtopic.php?f=3&t=224), [Beta Key](https://forum.makemkv.com/forum/viewtopic.php?t=1053)
-- [Ranger](https://github.com/ranger/ranger#installing-from-a-clone), still using ranger since lf is not fully configured like ranger yet
+- [Vial](https://get.vial.today/download/), make a Vial.desktop in ~/.local/share/applications
 
 ### Librewolf
 - Extensions
