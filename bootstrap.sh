@@ -1,9 +1,8 @@
 #!/bin/sh
 
+PKGS="7z adw-gtk3-theme adwaita-icon-theme blueman cage calibre chafa chromium cowsay cups dav1d ddcutil default-fonts-cjk easytag expat-devel faketime fastfetch ffmpeg-devel ffmpegthumbnailer file-roller flatpak foliate fortune-mod freerdp fuse fuse-libs fuzzel gammastep gimp gimp-resynthesizer golang google-noto-color-emoji-fonts google-noto-emoji-fonts gparted grim grimpicker gstreamer1-devel gstreamer1-plugins-bad-free-extras gstreamer1-plugins-base-devel gtk-doc gtk3-devel gutenprint gutenprint-devel gvfs gvfs-mtp gvfs-smb HandBrake HandBrake-gui hplip htop hugin hw-probe ImageMagick imlib2-devel inkscape iwlwifi-mvm-firmware kanshi keepassxc kernel-devel krita libavif-devel libexif-devel libheif-devel libjpeg-devel libjxl-devel libjxl-utils libreoffice librsvg2-devel libtiff-devel libunrar libwebp-devel libXcursor-devel libXft-devel libXi-devel libXinerama-devel libxkbcommon-devel libXrandr-devel light lshw lz4-devel mate-polkit mediawriter meson mkvtoolnix mkvtoolnix-gui moreutils mpv mpv-mpris nasm ncdu network-manager-applet NetworkManager-tui NetworkManager-wifi ninja-build nmap opus-tools pamixer pandoc parallel pavucontrol perl-core perl-File-MimeInfo playerctl plymouth-theme-spinfinity potrace protontricks python3-setuptools python3-tkinter qbittorrent qpwgraph qt5-qtbase-devel qt5ct qt6ct rpi-imager slurp sox sqlitebrowser steam stow strawberry sway swaylock terminus-fonts-console thunar thunar-archive-plugin thunar-volman tlp torbrowser-launcher tree-sitter-cli ufw unrar vlc waybar waydroid wayland-devel wayland-protocols-devel wdisplays weechat xdg-user-dirs xsane zathura zathura-cb zathura-pdf-mupdf"
 
-PKGS="gtk-doc gtk3-devel libavif-devel libheif-devel libjpeg-devel librsvg2-devel libtiff-devel libwebp-devel libjxl-devel adw-gtk3-theme adwaita-cursor-theme adwaita-icon-theme 7z blueman cage calibre chafa chromium cowsay cups dav1d ddcutil default-fonts-cjk easytag expat-devel faketime fastfetch ffmpeg-devel ffmpegthumbnailer file-roller foliate fortune-mod freerdp fuse fuse-libs fuzzel gammastep gimp gimp-resynthesizer golang google-noto-color-emoji-fonts google-noto-emoji-fonts gparted grim grimpicker gstreamer1-devel gstreamer1-plugins-bad-free-extras gstreamer1-plugins-base-devel gutenprint gutenprint-devel gvfs gvfs-mtp gvfs-smb HandBrake HandBrake-gui hplip htop hugin hw-probe ImageMagick imlib2-devel inkscape iwlwifi-mvm-firmware kanshi keepassxc kernel-devel krita libexif-devel libjxl-utils libreoffice libunrar libXcursor-devel libXft-devel libXi-devel libXinerama-devel libxkbcommon-devel libXrandr-devel light lshw mate-polkit lz4-devel mediawriter meson mkvtoolnix mkvtoolnix-gui moreutils mpv mpv-mpris nasm ncdu network-manager-applet NetworkManager-tui NetworkManager-wifi ninja-build nmap opus-tools pamixer pandoc parallel pavucontrol perl-core perl-File-MimeInfo playerctl plymouth-theme-spinfinity potrace protontricks python3-setuptools python3-tkinter qbittorrent qpwgraph qt5-qtbase-devel qt5ct qt6ct rpi-imager slurp sox sqlitebrowser steam stow strawberry sway swaylock terminus-fonts-console thunar thunar-archive-plugin thunar-volman tlp torbrowser-launcher tree-sitter-cli ufw unrar vlc waybar waydroid wayland-devel wayland-protocols-devel wdisplays weechat xdg-user-dirs xsane zathura zathura-cb zathura-pdf-mupdf"
-
-mkdir -p ~/desktop ~/documents ~/downloads ~/music ~/pictures/screenshots/mpv ~/public ~/templates ~/videos/recordings ~/src
+mkdir -p ~/desktop ~/documents ~/downloads ~/music ~/pictures/screenshots/mpv ~/public ~/templates ~/videos/recordings ~/src ~/.themes
 mkdir -p ~/.local/share/fonts/Mononoki ~/.local/bin ~/.local/src ~/.local/share/applications ~/.config/xfce4 ~/.config/gtk-3.0
 tar xf ~/.dotfiles/Mononoki.tar.xz -C ~/.local/share/fonts/Mononoki
 ln -sf $HOME/.dotfiles/.config/mimeapps.list $HOME/.local/share/applications/mimeapps.list
@@ -29,7 +28,7 @@ echo "KERNEL==\"hidraw*\", SUBSYSTEM==\"hidraw\", ATTRS{serial}==\"*vial:f64c2b3
 sudo dnf -y install stow
 rm ~/.bashrc ~/.bash_profile
 stow .
-source ~/.bashrc
+. ~/.bashrc
 
 
 ## rpm fusion
@@ -41,6 +40,7 @@ sudo dnf -y install intel-media-driver
 
 # packages
 sudo dnf -y install ${PKGS}
+sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 ## browser
 
@@ -68,17 +68,6 @@ chmod a+rx ~/.local/bin/yt-dlp  # Make executable
 go install go.senan.xyz/cliphist@latest
 env CGO_ENABLED=0 go install -ldflags="-s -w" github.com/gokcehan/lf@latest
 
-echo "don't add anything to path for rustup"
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-echo "don't add anything to path or enable completions for deno"
-curl -fsSL https://deno.land/install.sh | sh
-source ~/.bashrc
-deno completions bash > ~/.bashrc.d/user/deno.bash
-
-## flatpaks
-sudo dnf -y install flatpak
-sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-
 ## services
 xdg-user-dirs-update
 
@@ -94,8 +83,4 @@ sudo grubby --update-kernel=ALL --args="rhgb quiet"
 sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 sudo plymouth-set-default-theme spinfinity
 sudo dracut --force 
-
-echo "rebooting in 10 seconds press <C-c> to stop"
-sleep 10s
-
 sudo systemctl reboot

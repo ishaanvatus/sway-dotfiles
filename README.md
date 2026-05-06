@@ -18,6 +18,8 @@ bash bootstrap.sh
 ```
 
 ## Post Install 
+### run flatpaks.sh and toolchains.sh
+- for flatpaks, deno and rustup respectively.
 ### /etc/sudoers (replace "john" with your username)
 ```
 # specify the timeout type (usual default=tty)

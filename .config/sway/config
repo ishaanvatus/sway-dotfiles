@@ -291,4 +291,5 @@ exec --no-startup-id /usr/libexec/xdg-desktop-portal-wlr -r
 set $opacity 1.0
 for_window [class=".*"] opacity $opacity
 for_window [app_id=".*"] opacity $opacity
+for_window [app_id=^pavucontrol$] floating on, move position cursor, move down 27
 include /etc/sway/config.d/*

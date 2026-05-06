@@ -12,7 +12,8 @@ export GOPATH=$HOME/.go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOPATH/bin
 export QT_QPA_PLATFORMTHEME=qt6ct
-export GTK_THEME=adw-gtk3-dark
+export GTK_THEME=Adwaita:dark
+#export GTK_THEME=adw-gtk3-dark
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
