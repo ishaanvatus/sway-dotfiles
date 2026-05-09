@@ -92,3 +92,7 @@ docker run --name searxng -d \
     #firewall_backend = "nftables"
     firewall_backend = "iptables"
     ```
+- Jdownloader2
+    ```
+    flatpak override --user --env=_JAVA_AWT_WM_NONREPARENTING=1 org.jdownloader.JDownloader
+    ```

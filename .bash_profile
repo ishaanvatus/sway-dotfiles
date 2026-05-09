@@ -6,6 +6,6 @@ if [ -f ~/.bashrc ]; then
 fi
 
 # User specific environment and startup programs
-if [[ -z $DISPLAY && $(tty) == /dev/tty1 ]]; then
-    sway
+if [ -z "$WAYLAND_DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ] ; then
+    exec sway
 fi

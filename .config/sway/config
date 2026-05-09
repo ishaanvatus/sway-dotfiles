@@ -42,7 +42,7 @@ font pango:MononokiNerdFont Medium 17
 smart_gaps on
 gaps inner 8
 gaps outer 1
-default_border pixel 3
+default_border pixel 4
 hide_edge_borders smart
 smart_borders on
 set $wallpapers_path ~/pictures/wallpapers/
@@ -291,5 +291,8 @@ exec --no-startup-id /usr/libexec/xdg-desktop-portal-wlr -r
 set $opacity 1.0
 for_window [class=".*"] opacity $opacity
 for_window [app_id=".*"] opacity $opacity
-for_window [app_id=^pavucontrol$] floating on, move position cursor, move down 27
+#client.focused          #376A6D #376A6D #FFFFFF #376A6D #376A6D
+#client.unfocused        #3c3836 #282828 #a89984 #3c3836 #3c3836
+#client.focused_inactive #504945 #3c3836 #a89984 #504945 #504945
+#client.urgent           #cc241d #cc241d #FFFFFF #cc241d #cc241d
 include /etc/sway/config.d/*
