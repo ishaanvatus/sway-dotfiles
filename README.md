@@ -57,9 +57,9 @@ docker run --name searxng -d \
     cd install-tl-2*
     sudo perl ./install-tl --no-interaction
     ```
-- [Strawberry Spotify Plugin](https://wiki.strawberrymusicplayer.org/wiki/Installing_GStreamer_Spotify_plugin)
-- [MakeMKV](https://forum.makemkv.com/forum/viewtopic.php?f=3&t=224), [Beta Key](https://forum.makemkv.com/forum/viewtopic.php?t=1053) will not need it when I LEAVE SPOTIFY CAUSE SUBSCRIPTIONS BAD
-- [Vial](https://get.vial.today/download/), make a Vial.desktop in ~/.local/share/applications
+- [Strawberry Spotify Plugin](https://wiki.strawberrymusicplayer.org/wiki/Installing_GStreamer_Spotify_plugin) will not need it when I LEAVE SPOTIFY CAUSE SUBSCRIPTIONS BAD
+- [MakeMKV](https://forum.makemkv.com/forum/viewtopic.php?f=3&t=224), [Beta Key](https://forum.makemkv.com/forum/viewtopic.php?t=1053) 
+- [Vial](https://get.vial.today/download/) make a Vial.desktop in ~/.local/share/applications
 
 ### Librewolf
 - Extensions
