@@ -6,5 +6,4 @@ flatpak -y install flathub \
     org.signal.Signal \
     org.kde.kdenlive \
     org.mozilla.Thunderbird \
-    io.github.ciromattia.kcc \
-    org.jdownloader.JDownloader
+    io.github.ciromattia.kcc

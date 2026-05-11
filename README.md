@@ -45,8 +45,6 @@ docker run --name searxng -d \
 ```
 - http://localhost:8888/search?q=%s
 ### Apps left to install
-- [wl-clipboard](https://github.com/bugaevc/wl-clipboard/blob/master/BUILDING.md)
-    - due to the upstream not including the feature from this [keepassxc issue](https://github.com/keepassxreboot/keepassxc/discussions/10704#discussioncomment-14200858), smh 🫩
 - [Neovim](https://neovim.io/doc/install/#install-from-source)
 - [nsxiv](https://codeberg.org/nsxiv/nsxiv)
 - [nwg-look](https://github.com/nwg-piotr/nwg-look)
