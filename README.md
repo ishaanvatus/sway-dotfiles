@@ -80,17 +80,11 @@ docker run --name searxng -d \
 
 ### Dark Theme
 - qt5ct dark theme & qt6ct dark theme: darker
-- ~lxappearance~, nwg-look dark theme: Adwaita Dark
-- librewolf, anki, calibre, chromium, thunderbird, foliate
+- nwg-look dark theme: Adwaita Dark, prefer dark
 
 ### MISC
-- logseq maybe (flatpak)
 - /etc/libvirt/network.conf: change 
     ```
     #firewall_backend = "nftables"
     firewall_backend = "iptables"
-    ```
-- Jdownloader2
-    ```
-    flatpak override --user --env=_JAVA_AWT_WM_NONREPARENTING=1 org.jdownloader.JDownloader
     ```
