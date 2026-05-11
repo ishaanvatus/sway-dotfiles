@@ -45,10 +45,10 @@ docker run --name searxng -d \
 ```
 - http://localhost:8888/search?q=%s
 ### Apps left to install
-- [Neovim](https://neovim.io/doc/install/#install-from-source)
+- [Neovim](https://neovim.io/doc/install/#install-from-source) use stable branch
 - [nsxiv](https://codeberg.org/nsxiv/nsxiv)
 - [nwg-look](https://github.com/nwg-piotr/nwg-look)
-- [chafa](https://github.com/hpjansson/chafa#installing)
+- [chafa](https://github.com/hpjansson/chafa#installing) for jxl support lf previews
 - [Anki](https://apps.ankiweb.net/#downloads), [instructions](https://docs.ankiweb.net/platform/linux/installing.html)
 - [TeX Live](https://www.tug.org/texlive/quickinstall.html)
     ```
@@ -58,7 +58,7 @@ docker run --name searxng -d \
     sudo perl ./install-tl --no-interaction
     ```
 - [Strawberry Spotify Plugin](https://wiki.strawberrymusicplayer.org/wiki/Installing_GStreamer_Spotify_plugin)
-- [MakeMKV](https://forum.makemkv.com/forum/viewtopic.php?f=3&t=224), [Beta Key](https://forum.makemkv.com/forum/viewtopic.php?t=1053)
+- [MakeMKV](https://forum.makemkv.com/forum/viewtopic.php?f=3&t=224), [Beta Key](https://forum.makemkv.com/forum/viewtopic.php?t=1053) will not need it when I LEAVE SPOTIFY CAUSE SUBSCRIPTIONS BAD
 - [Vial](https://get.vial.today/download/), make a Vial.desktop in ~/.local/share/applications
 
 ### Librewolf
