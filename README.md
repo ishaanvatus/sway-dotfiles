@@ -1,5 +1,5 @@
 # How to use this repo
-- Firstly: free free to report any issues, I'll get around to it if I can replicate it.
+- FIRSTLY: FREE FREE TO REPORT ANY ISSUES, I'LL GET AROUND TO IT IF I CAN REPLICATE IT.
 - This scripts sets up a full [Sway](https://swaywm.org/) desktop experience configured to my personal usage, pls try it out.
 - Get the [Fedora Linux](https://fedoraproject.org/) [Everything](https://fedoraproject.org/misc/#everything) ISO (netinstaller)
 - Use the partition scheme given in [PARTITION_SCHEME.md](./PARTITION_SCHEME.md)
@@ -13,13 +13,12 @@
 git clone https://github.com/ishaanvatus/dotfiles .dotfiles
 cd .dotfiles
 bash bootstrap.sh
-## the script will ask for sudo a couple of times
-## installer options for rustup and deno, just follow the echoed instructions (don't add anything to path and don't add any completions)
+## the script may ask for sudo a couple of times
 ```
 
-## Post Install 
-### run flatpaks.sh and toolchains.sh
-- for flatpaks, deno and rustup respectively.
+### run toolchains.sh
+- for deno and rustup respectively.
+## reboot now and optionally run flatpaks.sh to install flatpaks
 ### /etc/sudoers (replace "john" with your username)
 ```
 # specify the timeout type (usual default=tty)
