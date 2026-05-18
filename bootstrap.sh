@@ -72,7 +72,6 @@ env CGO_ENABLED=0 go install -ldflags="-s -w" github.com/gokcehan/lf@latest
 xdg-user-dirs-update
 
 systemctl --user enable kanshi.service
-systemctl --user start sway-session.target
 sudo systemctl enable tlp
 echo "START_CHARGE_THRESH_BAT0=40" | sudo tee -a /etc/tlp.conf
 echo "STOP_CHARGE_THRESH_BAT0=60" | sudo tee -a /etc/tlp.conf
@@ -83,3 +82,4 @@ sudo grubby --update-kernel=ALL --args="rhgb quiet"
 sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 sudo plymouth-set-default-theme spinfinity
 sudo dracut --force 
+bash toolchains.sh && reboot

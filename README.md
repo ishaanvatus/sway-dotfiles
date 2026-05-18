@@ -29,12 +29,8 @@ Defaults:john timestamp_timeout=5
 ```
 ### [searxng docker install](https://docs.searxng.org/admin/installation-docker.html)
 ```
-mkdir -p ~/.searxng/config/ ~/.searxng/data/
-```
-```
-cd ~/.searxng/
-```
-```
+mkdir -p ~/.searxng/config/ ~/.searxng/data/ &&
+cd ~/.searxng/ &&
 docker run --name searxng -d \
     -p 8888:8080 --restart always \
     --dns 9.9.9.9 --dns 149.112.112.112 \
@@ -45,6 +41,10 @@ docker run --name searxng -d \
 - http://localhost:8888/search?q=%s
 ### Apps left to install
 - [Neovim](https://neovim.io/doc/install/#install-from-source) use stable branch
+    ```
+    cd ~/.local/share/nvim/site/pack/core/opt/vim-hexokinase
+    make hexokinase
+    ```
 - [nsxiv](https://codeberg.org/nsxiv/nsxiv)
 - [nwg-look](https://github.com/nwg-piotr/nwg-look)
 - [chafa](https://github.com/hpjansson/chafa#installing) for jxl support lf previews
@@ -56,7 +56,7 @@ docker run --name searxng -d \
     cd install-tl-2*
     sudo perl ./install-tl --no-interaction
     ```
-- [Strawberry Spotify Plugin](https://wiki.strawberrymusicplayer.org/wiki/Installing_GStreamer_Spotify_plugin) will not need it when I LEAVE SPOTIFY CAUSE SUBSCRIPTIONS BAD
+- [Strawberry Spotify Plugin](https://wiki.strawberrymusicplayer.org/wiki/Installing_GStreamer_Spotify_plugin)
 - [MakeMKV](https://forum.makemkv.com/forum/viewtopic.php?f=3&t=224), [Beta Key](https://forum.makemkv.com/forum/viewtopic.php?t=1053) 
 - [Vial](https://get.vial.today/download/) make a Vial.desktop in ~/.local/share/applications
 
@@ -69,13 +69,6 @@ docker run --name searxng -d \
 - Turn off history deletion
 - Startup Behaviour
 - Download Behaviour
-
-### Chromium
-- Extensions
-    - [uBlock Origin Lite](https://chromewebstore.google.com/detail/ublock-origin-lite/ddkjiahejlhfcafbddmgiahcphecmpfh?hl=en)
-- Startup Behaviour
-- Download Behaviour
-- Whatsapp Web
 
 ### Dark Theme
 - qt5ct dark theme & qt6ct dark theme: darker
