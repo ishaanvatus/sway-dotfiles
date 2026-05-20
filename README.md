@@ -59,7 +59,9 @@ docker run --name searxng -d \
 - [Strawberry Spotify Plugin](https://wiki.strawberrymusicplayer.org/wiki/Installing_GStreamer_Spotify_plugin)
 - [MakeMKV](https://forum.makemkv.com/forum/viewtopic.php?f=3&t=224), [Beta Key](https://forum.makemkv.com/forum/viewtopic.php?t=1053) 
 - [Vial](https://get.vial.today/download/) make a Vial.desktop in ~/.local/share/applications
-
+- [ddcui](https://github.com/rockowitz/ddcui) ddcutil frontend gui app.
+### Optionally
+- install lpf-spotify-client from rpm fusion for spotify (flatpak may not work well with sys tray)
 ### Librewolf
 - Extensions
     - [Vimium](https://vimium.github.io/)
