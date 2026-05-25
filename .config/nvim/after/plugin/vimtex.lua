@@ -10,11 +10,3 @@ vim.g.vimtex_compiler_latexmk = {
   }
 }
 
-vim.api.nvim_create_augroup('VimtexAutoCompile', { clear = true })
-vim.api.nvim_create_autocmd('BufReadPost', {
-  group = 'VimtexAutoCompile',
-  pattern = '*.tex',
-  callback = function()
-    vim.cmd('VimtexCompile')
-  end,
-})

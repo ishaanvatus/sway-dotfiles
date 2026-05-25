@@ -23,7 +23,6 @@ exec nm-applet --indicator
 exec_always wl-paste --type text --watch cliphist store
 exec_always wl-paste --type image --watch cliphist store
 bindsym $mod+y exec cliphist-fuzzel-img
-bindsym $mod+e exec fuzzel-emoji
 bindsym $mod+i exec librewolf
 # Your preferred terminal emulator
 # set $term foot
@@ -204,6 +203,7 @@ output * max_render_time off
     # respectively.
     bindsym $mod+b splith
     bindsym $mod+v splitv
+    bindsym $mod+e layout toggle split
 
     # Switch the current container between different layout styles
     bindsym $mod+s layout stacking
@@ -221,6 +221,7 @@ output * max_render_time off
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
+    bindsym $mod+Shift+a focus child
 #
 # Scratchpad:
 #
