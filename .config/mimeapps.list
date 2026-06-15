@@ -1,7 +1,11 @@
+[Added Associations]
+inode/directory=thunar.desktop;
+
 [Default Applications]
-video/x-matroska=mpv.desktop;
+inode/directory=thunar.desktop;
 text/html=librewolf.desktop
+video/x-matroska=mpv.desktop;
+x-scheme-handler/about=librewolf.desktop
 x-scheme-handler/http=librewolf.desktop
 x-scheme-handler/https=librewolf.desktop
-x-scheme-handler/about=librewolf.desktop
 x-scheme-handler/unknown=librewolf.desktop
