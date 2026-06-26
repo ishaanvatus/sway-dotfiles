@@ -40,11 +40,6 @@ docker run --name searxng -d \
 ```
 - http://localhost:8888/search?q=%s
 ### Apps left to install
-- [Neovim](https://neovim.io/doc/install/#install-from-source) use stable branch
-    ```
-    cd ~/.local/share/nvim/site/pack/core/opt/vim-hexokinase
-    make hexokinase
-    ```
 - [nsxiv](https://codeberg.org/nsxiv/nsxiv)
 - [nwg-look](https://github.com/nwg-piotr/nwg-look)
 - [chafa](https://github.com/hpjansson/chafa#installing) for jxl support lf previews
@@ -81,4 +76,9 @@ docker run --name searxng -d \
     ```
     #firewall_backend = "nftables"
     firewall_backend = "iptables"
+    ```
+- neovim 
+    ```
+    cd ~/.local/share/nvim/site/pack/core/opt/vim-hexokinase
+    make hexokinase
     ```

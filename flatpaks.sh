@@ -5,4 +5,4 @@ flatpak -y install flathub \
     org.gnome.Epiphany \
     org.signal.Signal \
     io.github.ciromattia.kcc \
-    io.freetubeapp.FreeTube
+    flatpak run org.mozilla.thunderbird_esr
