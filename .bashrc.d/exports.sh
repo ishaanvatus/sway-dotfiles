@@ -10,7 +10,6 @@ export INFOPATH=/usr/local/texlive/2026/texmf-dist/doc/info:$INFOPATH
 export PATH=/usr/local/texlive/2026/bin/x86_64-linux:$PATH
 export GOPATH=$HOME/.go
 export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$GOPATH/bin
 export QT_QPA_PLATFORMTHEME=qt6ct
 export GTK_THEME=Adwaita:dark
 
