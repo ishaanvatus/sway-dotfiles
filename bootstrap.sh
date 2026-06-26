@@ -9,6 +9,7 @@ tar xf ~/.dotfiles/Mononoki.tar.xz -C ~/.local/share/fonts/Mononoki
 ln -sf $HOME/.dotfiles/.config/mimeapps.list $HOME/.local/share/applications/mimeapps.list
 
 echo "max_parallel_downloads=10" | sudo tee -a  /etc/dnf/dnf.conf
+echo "fastestmirror=True" | sudo tee -a /etc/dnf/dnf.conf
 sudo dnf -y upgrade --refresh
 
 # Laptop stays on when closing lid
