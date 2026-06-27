@@ -195,6 +195,19 @@ output * max_render_time off
     bindsym $mod+Tab workspace back_and_forth
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+    set $main DP-1
+    set $vertical HDMI-A-2
+    set $laptop eDP-1
+    workspace 1 output $main
+    workspace 2 output $main
+    workspace 3 output $main
+    workspace 4 output $main
+    workspace 5 output $main
+    workspace 6 output $main
+    workspace 7 output $main
+    workspace 8 output $main
+    workspace 9 output $main
+    workspace 10 output $vertical
 #
 # Layout stuff:
 #
@@ -289,7 +302,6 @@ bar {
 }
 bindsym $mod+n exec pkill -SIGUSR1 '^waybar$'
 
-exec --no-startup-id /usr/libexec/xdg-desktop-portal-wlr -r 
 set $opacity 1.0
 for_window [class=".*"] opacity $opacity
 for_window [app_id=".*"] opacity $opacity
