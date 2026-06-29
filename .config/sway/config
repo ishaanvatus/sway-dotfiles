@@ -235,6 +235,11 @@ output * max_render_time off
     # Move focus to the parent container
     bindsym $mod+a focus parent
     bindsym $mod+Shift+a focus child
+    bindgesture swipe:right workspace prev
+    bindgesture swipe:left workspace next
+        
+    bindgesture swipe:4:up exec dmenu_path | fuzzel | xargs swaymsg exec --
+    bindgesture swipe:4:down exec pkill fuzzel
 #
 # Scratchpad:
 #
@@ -297,10 +302,10 @@ input "5426:152:Razer_Razer_DeathAdder_Essential" {
 bar {
     swaybar_command waybar
     mode dock
-    position bottom
+    position top
     modifier $mod
 }
-bindsym $mod+n exec pkill -SIGUSR1 '^waybar$'
+bindsym $mod+n bar mode toggle
 
 set $opacity 1.0
 for_window [class=".*"] opacity $opacity
