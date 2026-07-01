@@ -6,6 +6,9 @@
 
 ### Variables
 #
+set $term footclient
+set $browser librewolf
+set $launcher dmenu_path | fuzzel | xargs swaymsg exec --
 # Logo key. Use Mod1 for Alt.
 set $mod MOD4  
 # Home row direction keys, like vim
@@ -20,19 +23,18 @@ exec /usr/libexec/polkit-mate-authentication-agent-1
 exec thunar --daemon
 exec /usr/libexec/gvfs-udisks2-volume-monitor
 exec nm-applet --indicator
+exec blueman-applet
 exec_always wl-paste --type text --watch cliphist store
 exec_always wl-paste --type image --watch cliphist store
 bindsym $mod+y exec cliphist-fuzzel-img
-bindsym $mod+i exec librewolf
+bindsym $mod+i exec $browser
 # Your preferred terminal emulator
 # set $term foot
 # https://wiki.gentoo.org/wiki/Foot#Server_mode_configuration
-set $term footclient
 exec foot -s
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | fuzzel | xargs swaymsg exec --
 
 ### Output configuration
 #
@@ -99,7 +101,7 @@ output * max_render_time off
     bindsym $mod+Shift+c kill
 
     # Start your launcher
-    bindsym $mod+p exec $menu
+    bindsym $mod+p exec $launcher
 
 
     # Drag floating windows by holding down $mod and left mouse button.
@@ -247,9 +249,6 @@ output * max_render_time off
     # Move container to next/prev monitor
     bindgesture swipe:right workspace prev
     bindgesture swipe:left workspace next
-        
-    bindgesture swipe:4:up exec dmenu_path | fuzzel | xargs swaymsg exec --
-    bindgesture swipe:4:down exec pkill fuzzel
 #
 # Scratchpad:
 #
